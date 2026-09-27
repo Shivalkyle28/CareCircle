@@ -5,18 +5,193 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CareCircle</title>
+    <title>CareCircle | Get Started</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
-<body>
+<body class="setup-body">
 
-    <h1>CareCircle</h1>
+    <div class="setup-container">
 
-    <p>Caring together. Staying connected.</p>
+        <!-- Logo -->
+        <div class="setup-logo">
 
-    <script src="js/script.js"></script>
+            <div class="logo-icon">
+                <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+
+            <div>
+                <h1>CareCircle</h1>
+                <p>Caring together. Staying connected.</p>
+            </div>
+
+        </div>
+
+
+        <!-- Progress -->
+        <div class="setup-progress">
+
+            <div class="progress-step active">
+                <span>1</span>
+                <p>Your Profile</p>
+            </div>
+
+            <div class="progress-line"></div>
+
+            <div class="progress-step">
+                <span>2</span>
+                <p>Person in Care</p>
+            </div>
+
+            <div class="progress-line"></div>
+
+            <div class="progress-step">
+                <span>3</span>
+                <p>Care Information</p>
+            </div>
+
+        </div>
+
+
+        <!-- Setup Card -->
+        <section class="setup-card">
+
+            <div class="setup-heading">
+
+                <p class="small-heading">Welcome to CareCircle</p>
+
+                <h2>Let's create your caregiver profile</h2>
+
+                <p>
+                    Tell us a little about yourself before setting up
+                    the person you will be caring for.
+                </p>
+
+            </div>
+
+
+            <form id="caregiverForm">
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="firstName">
+                            First Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="firstName"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="lastName">
+                            Last Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="lastName"
+                            required>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="phone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="868-555-1234"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="relationship">
+                        Your relationship to the person in your care
+                    </label>
+
+                    <select id="relationship" required>
+
+                        <option value="">
+                            Select relationship
+                        </option>
+
+                        <option value="Son">Son</option>
+
+                        <option value="Daughter">Daughter</option>
+
+                        <option value="Spouse">Spouse</option>
+
+                        <option value="Sibling">Sibling</option>
+
+                        <option value="Grandchild">Grandchild</option>
+
+                        <option value="Relative">Other Relative</option>
+
+                        <option value="Professional Caregiver">
+                            Professional Caregiver
+                        </option>
+
+                        <option value="Friend">Friend</option>
+
+                        <option value="Other">Other</option>
+
+                    </select>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="setup-next-btn">
+
+                    Continue
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </form>
+
+        </section>
+
+    </div>
+
+
+    <script src="script.js"></script>
 
 </body>
 
