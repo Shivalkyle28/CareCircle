@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>CareCircle | Care Setup</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+
+
+<body class="setup-body">
+
+<div class="care-setup-container">
+
+
+    <!-- ===============================
+         CARECIRCLE LOGO
+    ================================ -->
+
+    <div class="setup-logo">
+
+        <div class="logo-icon">
+            <i class="fa-solid fa-heart-pulse"></i>
+        </div>
+
+        <div>
+            <h1>CareCircle</h1>
+            <p>Caring together. Staying connected.</p>
+        </div>
+
+    </div>
+
+
+
+    <!-- ===============================
+         PROGRESS BAR
+    ================================ -->
+
+    <div class="setup-progress">
+
+        <div class="progress-step completed">
+            <span>
+                <i class="fa-solid fa-check"></i>
+            </span>
+            <p>Your Profile</p>
+        </div>
+
+
+        <div class="progress-line completed-line"></div>
+
+
+        <div class="progress-step completed">
+            <span>
+                <i class="fa-solid fa-check"></i>
+            </span>
+            <p>Person in Care</p>
+        </div>
+
+
+        <div class="progress-line completed-line"></div>
+
+
+        <div class="progress-step active">
+            <span>3</span>
+            <p>Care Information</p>
+        </div>
+
+    </div>
+
+
+
+    <!-- ===============================
+         INTRODUCTION
+    ================================ -->
+
+    <section class="care-setup-header">
+
+        <p class="small-heading">
+            Step 3 of 3
+        </p>
+
+        <h2 id="careSetupHeading">
+            Let's set up their care
+        </h2>
+
+        <p>
+            Add the information you want CareCircle to help manage.
+            You can always add or change this information later.
+        </p>
+
+    </section>
+
+
+
+    <!-- ===============================
+         CARE SETUP GRID
+    ================================ -->
+
+    <section class="care-setup-grid">
+
+
+        <!-- ==================================
+             MEDICATIONS
+        =================================== -->
+
+        <div class="care-setup-card">
+
+            <div class="care-card-top">
+
+                <div class="care-card-icon medication-icon">
+                    <i class="fa-solid fa-pills"></i>
+                </div>
+
+                <div>
+                    <h3>Medications</h3>
+                    <p>
+                        Add medications, doses and times.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div
+                id="medicationSetupList"
+                class="setup-item-list"
+            ></div>
+
+
+            <button
+                class="care-add-btn"
+                id="showMedicationForm"
+                type="button"
+            >
+                <i class="fa-solid fa-plus"></i>
+                Add Medication
+            </button>
+
+
+            <!-- Medication Form -->
+
+            <div
+                class="mini-form hidden"
+                id="medicationSetupForm"
+            >
+
+                <div class="form-group">
+
+                    <label for="setupMedicationName">
+                        Medication Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="setupMedicationName"
+                        placeholder="e.g. Metformin"
+                    >
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="setupMedicationDose">
+                            Dosage
+                        </label>
+
+                        <input
+                            type="text"
+                            id="setupMedicationDose"
+                            placeholder="e.g. 500 mg"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="setupMedicationTime">
+                            Time
+                        </label>
+
+                        <input
+                            type="time"
+                            id="setupMedicationTime"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="mini-form-buttons">
+
+                    <button
+                        type="button"
+                        class="mini-cancel-btn"
+                        id="cancelMedicationSetup"
+                    >
+                        Cancel
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="mini-save-btn"
+                        id="saveMedicationSetup"
+                    >
+                        Save Medication
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ==================================
+             APPOINTMENTS
+        =================================== -->
+
+        <div class="care-setup-card">
+
+            <div class="care-card-top">
+
+                <div class="care-card-icon appointment-icon">
+                    <i class="fa-regular fa-calendar"></i>
+                </div>
+
+                <div>
+                    <h3>Appointments</h3>
+
+                    <p>
+                        Add doctor visits and important events.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div
+                id="appointmentSetupList"
+                class="setup-item-list"
+            ></div>
+
+
+            <button
+                class="care-add-btn"
+                id="showAppointmentForm"
+                type="button"
+            >
+                <i class="fa-solid fa-plus"></i>
+                Add Appointment
+            </button>
+
+
+            <!-- Appointment Form -->
+
+            <div
+                class="mini-form hidden"
+                id="appointmentSetupForm"
+            >
+
+                <div class="form-group">
+
+                    <label for="setupAppointmentTitle">
+                        Appointment
+                    </label>
+
+                    <input
+                        type="text"
+                        id="setupAppointmentTitle"
+                        placeholder="e.g. Doctor's Appointment"
+                    >
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="setupAppointmentDate">
+                            Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="setupAppointmentDate"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="setupAppointmentTime">
+                            Time
+                        </label>
+
+                        <input
+                            type="time"
+                            id="setupAppointmentTime"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="setupAppointmentLocation">
+                        Location
+                    </label>
+
+                    <input
+                        type="text"
+                        id="setupAppointmentLocation"
+                        placeholder="e.g. Medical Centre"
+                    >
+
+                </div>
+
+
+                <div class="mini-form-buttons">
+
+                    <button
+                        type="button"
+                        class="mini-cancel-btn"
+                        id="cancelAppointmentSetup"
+                    >
+                        Cancel
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="mini-save-btn"
+                        id="saveAppointmentSetup"
+                    >
+                        Save Appointment
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ==================================
+             CARE TASKS
+        =================================== -->
+
+        <div class="care-setup-card">
+
+            <div class="care-card-top">
+
+                <div class="care-card-icon task-icon">
+                    <i class="fa-solid fa-list-check"></i>
+                </div>
+
+                <div>
+                    <h3>Care Tasks</h3>
+
+                    <p>
+                        Add recurring care responsibilities.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div
+                id="taskSetupList"
+                class="setup-item-list"
+            ></div>
+
+
+            <button
+                class="care-add-btn"
+                id="showTaskForm"
+                type="button"
+            >
+                <i class="fa-solid fa-plus"></i>
+                Add Care Task
+            </button>
+
+
+            <!-- Task Form -->
+
+            <div
+                class="mini-form hidden"
+                id="taskSetupForm"
+            >
+
+                <div class="form-group">
+
+                    <label for="setupTaskName">
+                        Task
+                    </label>
+
+                    <input
+                        type="text"
+                        id="setupTaskName"
+                        placeholder="e.g. Evening Walk"
+                    >
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="setupTaskTime">
+                            Time
+                        </label>
+
+                        <input
+                            type="time"
+                            id="setupTaskTime"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="setupTaskFrequency">
+                            Frequency
+                        </label>
+
+                        <select id="setupTaskFrequency">
+
+                            <option value="Daily">
+                                Daily
+                            </option>
+
+                            <option value="Weekly">
+                                Weekly
+                            </option>
+
+                            <option value="One Time">
+                                One Time
+                            </option>
+
+                            <option value="As Needed">
+                                As Needed
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mini-form-buttons">
+
+                    <button
+                        type="button"
+                        class="mini-cancel-btn"
+                        id="cancelTaskSetup"
+                    >
+                        Cancel
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="mini-save-btn"
+                        id="saveTaskSetup"
+                    >
+                        Save Task
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ==================================
+             HEALTH MONITORING
+        =================================== -->
+
+        <div class="care-setup-card">
+
+            <div class="care-card-top">
+
+                <div class="care-card-icon health-icon">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+
+                <div>
+                    <h3>Health Monitoring</h3>
+
+                    <p>
+                        Choose the health information you want to track.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="health-options">
+
+                <label class="health-option">
+
+                    <input
+                        type="checkbox"
+                        value="Blood Pressure"
+                        class="healthMetric"
+                    >
+
+                    <span>
+                        <i class="fa-solid fa-heart-pulse"></i>
+                        Blood Pressure
+                    </span>
+
+                </label>
+
+
+                <label class="health-option">
+
+                    <input
+                        type="checkbox"
+                        value="Blood Glucose"
+                        class="healthMetric"
+                    >
+
+                    <span>
+                        <i class="fa-solid fa-droplet"></i>
+                        Blood Glucose
+                    </span>
+
+                </label>
+
+
+                <label class="health-option">
+
+                    <input
+                        type="checkbox"
+                        value="Temperature"
+                        class="healthMetric"
+                    >
+
+                    <span>
+                        <i class="fa-solid fa-temperature-half"></i>
+                        Temperature
+                    </span>
+
+                </label>
+
+
+                <label class="health-option">
+
+                    <input
+                        type="checkbox"
+                        value="Weight"
+                        class="healthMetric"
+                    >
+
+                    <span>
+                        <i class="fa-solid fa-weight-scale"></i>
+                        Weight
+                    </span>
+
+                </label>
+
+
+                <label class="health-option">
+
+                    <input
+                        type="checkbox"
+                        value="Water Intake"
+                        class="healthMetric"
+                    >
+
+                    <span>
+                        <i class="fa-solid fa-glass-water"></i>
+                        Water Intake
+                    </span>
+
+                </label>
+
+
+                <label class="health-option">
+
+                    <input
+                        type="checkbox"
+                        value="Sleep"
+                        class="healthMetric"
+                    >
+
+                    <span>
+                        <i class="fa-solid fa-moon"></i>
+                        Sleep
+                    </span>
+
+                </label>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ===============================
+         BOTTOM ACTIONS
+    ================================ -->
+
+    <div class="care-setup-actions">
+
+        <a
+            href="patient-setup.html"
+            class="setup-back-btn"
+        >
+            <i class="fa-solid fa-arrow-left"></i>
+            Back
+        </a>
+
+
+        <button
+            id="finishCareSetup"
+            class="finish-setup-btn"
+            type="button"
+        >
+            Finish Setup
+
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+    </div>
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

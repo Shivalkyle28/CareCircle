@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CareCircle | Person in Care</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body class="setup-body">
+
+    <div class="setup-container">
+
+        <!-- =========================
+             LOGO
+        ========================== -->
+        <div class="setup-logo">
+
+            <div class="logo-icon">
+                <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+
+            <div>
+                <h1>CareCircle</h1>
+                <p>Caring together. Staying connected.</p>
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             PROGRESS
+        ========================== -->
+        <div class="setup-progress">
+
+            <div class="progress-step completed">
+                <span>
+                    <i class="fa-solid fa-check"></i>
+                </span>
+                <p>Your Profile</p>
+            </div>
+
+            <div class="progress-line completed-line"></div>
+
+            <div class="progress-step active">
+                <span>2</span>
+                <p>Person in Care</p>
+            </div>
+
+            <div class="progress-line"></div>
+
+            <div class="progress-step">
+                <span>3</span>
+                <p>Care Information</p>
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             FORM CARD
+        ========================== -->
+        <section class="setup-card">
+
+            <div class="setup-heading">
+
+                <p class="small-heading">
+                    Step 2 of 3
+                </p>
+
+                <h2 id="patientSetupGreeting">
+                    Who will you be caring for?
+                </h2>
+
+                <p>
+                    Tell us a little about the person you will be caring for.
+                    You can add more care information later.
+                </p>
+
+            </div>
+
+
+            <form id="patientForm">
+
+
+                <!-- NAME -->
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="patientFirstName">
+                            First Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="patientFirstName"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="patientLastName">
+                            Last Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="patientLastName"
+                            required>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DOB + SEX -->
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="patientDOB">
+                            Date of Birth
+                        </label>
+
+                        <input
+                            type="date"
+                            id="patientDOB"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="patientSex">
+                            Sex
+                        </label>
+
+                        <select id="patientSex" required>
+
+                            <option value="">
+                                Select
+                            </option>
+
+                            <option value="Female">
+                                Female
+                            </option>
+
+                            <option value="Male">
+                                Male
+                            </option>
+
+                            <option value="Prefer not to say">
+                                Prefer not to say
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PHONE -->
+                <div class="form-group">
+
+                    <label for="patientPhone">
+                        Phone Number
+                        <span class="optional-label">(optional)</span>
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="patientPhone"
+                        placeholder="868-555-1234">
+
+                </div>
+
+
+                <!-- ADDRESS -->
+                <div class="form-group">
+
+                    <label for="patientAddress">
+                        Home Address
+                    </label>
+
+                    <input
+                        type="text"
+                        id="patientAddress"
+                        placeholder="Street, City / Community"
+                        required>
+
+                </div>
+
+
+                <!-- DOCTOR -->
+                <div class="form-group">
+
+                    <label for="doctorName">
+                        Primary Doctor
+                        <span class="optional-label">(optional)</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="doctorName"
+                        placeholder="e.g. Dr. Jane Doe">
+
+                </div>
+
+
+                <!-- CONDITIONS -->
+                <div class="form-group">
+
+                    <label for="medicalConditions">
+                        Known Medical Conditions
+                        <span class="optional-label">(optional)</span>
+                    </label>
+
+                    <textarea
+                        id="medicalConditions"
+                        rows="3"
+                        placeholder="e.g. Hypertension, diabetes"></textarea>
+
+                    <p class="field-help">
+                        Separate multiple conditions with commas.
+                    </p>
+
+                </div>
+
+
+                <!-- ALLERGIES -->
+                <div class="form-group">
+
+                    <label for="allergies">
+                        Allergies
+                        <span class="optional-label">(optional)</span>
+                    </label>
+
+                    <textarea
+                        id="allergies"
+                        rows="3"
+                        placeholder="e.g. Penicillin, peanuts"></textarea>
+
+                </div>
+
+
+                <!-- EMERGENCY CONTACT -->
+                <div class="form-divider">
+
+                    <h3>
+                        <i class="fa-solid fa-phone-volume"></i>
+                        Emergency Contact
+                    </h3>
+
+                    <p>
+                        Someone who can be contacted if assistance is needed.
+                    </p>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="emergencyName">
+                            Contact Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="emergencyName"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="emergencyPhone">
+                            Contact Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="emergencyPhone"
+                            required>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="emergencyRelationship">
+                        Relationship
+                    </label>
+
+                    <select id="emergencyRelationship" required>
+
+                        <option value="">
+                            Select relationship
+                        </option>
+
+                        <option value="Spouse">Spouse</option>
+                        <option value="Son">Son</option>
+                        <option value="Daughter">Daughter</option>
+                        <option value="Sibling">Sibling</option>
+                        <option value="Grandchild">Grandchild</option>
+                        <option value="Relative">Other Relative</option>
+                        <option value="Friend">Friend</option>
+                        <option value="Caregiver">Caregiver</option>
+                        <option value="Other">Other</option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- BUTTONS -->
+                <div class="setup-buttons">
+
+                    <a
+                        href="index.html"
+                        class="setup-back-btn">
+
+                        <i class="fa-solid fa-arrow-left"></i>
+                        Back
+
+                    </a>
+
+
+                    <button
+                        type="submit"
+                        class="setup-next-btn">
+
+                        Continue
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

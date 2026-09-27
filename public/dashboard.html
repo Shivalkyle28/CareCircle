@@ -5,23 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CareCircle | Caregiver Dashboard</title>
+    <title>CareCircle | Dashboard</title>
 
     <link rel="stylesheet" href="style.css">
 
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
+
 <body>
 
-    <!-- =========================
+    <!-- ======================================
          HEADER
-    ========================== -->
+    ======================================= -->
+
     <header class="top-header">
 
         <div class="brand">
+
             <div class="logo-icon">
                 <i class="fa-solid fa-heart-pulse"></i>
             </div>
@@ -30,7 +32,9 @@
                 <h1>CareCircle</h1>
                 <p>Caring together. Staying connected.</p>
             </div>
+
         </div>
+
 
         <div class="header-actions">
 
@@ -39,13 +43,27 @@
                 <span class="notification-dot"></span>
             </button>
 
+
             <div class="caregiver-profile">
-                <div class="avatar">SD</div>
+
+                <div
+                    class="avatar"
+                    id="caregiverInitials">
+                    CC
+                </div>
 
                 <div class="caregiver-text">
-                    <strong>Sarah Davis</strong>
-                    <span>Caregiver</span>
+
+                    <strong id="headerCaregiverName">
+                        Caregiver
+                    </strong>
+
+                    <span id="headerRelationship">
+                        CareCircle Member
+                    </span>
+
                 </div>
+
             </div>
 
         </div>
@@ -53,190 +71,285 @@
     </header>
 
 
-    <!-- =========================
-         MAIN CONTENT
-    ========================== -->
+
+    <!-- ======================================
+         DASHBOARD
+    ======================================= -->
+
     <main class="dashboard-container">
 
-        <!-- Welcome Section -->
+
+        <!-- WELCOME -->
+
         <section class="welcome-section">
 
             <div>
-                <p class="small-heading">Caregiver Dashboard</p>
 
-                <h2>Good morning, Sarah</h2>
-
-                <p class="welcome-message">
-                    Here's an overview of Janice's care today.
+                <p class="small-heading">
+                    Caregiver Dashboard
                 </p>
+
+                <h2 id="dashboardGreeting">
+                    Welcome to CareCircle
+                </h2>
+
+                <p
+                    class="welcome-message"
+                    id="dashboardMessage">
+                    Here's today's care overview.
+                </p>
+
             </div>
 
-            <button class="quick-add-btn" id="quickAddBtn">
+
+            <button
+                class="quick-add-btn"
+                id="quickAddBtn">
+
                 <i class="fa-solid fa-plus"></i>
                 Quick Add
+
             </button>
 
         </section>
 
 
-        <!-- =========================
-             PATIENT PROFILE
-        ========================== -->
+
+        <!-- ======================================
+             PERSON IN CARE
+        ======================================= -->
+
         <section class="patient-card">
 
             <div class="patient-information">
 
-                <div class="patient-avatar">
-                    J
+                <div
+                    class="patient-avatar"
+                    id="patientInitial">
+                    P
                 </div>
 
+
                 <div>
-                    <p class="label">Currently caring for</p>
-                    <h3>Janice Davis</h3>
+
+                    <p class="label">
+                        Currently caring for
+                    </p>
+
+                    <h3 id="dashboardPatientName">
+                        Person in Care
+                    </h3>
+
 
                     <div class="patient-details">
+
                         <span>
                             <i class="fa-solid fa-cake-candles"></i>
-                            Age 72
+
+                            <span id="patientAge">
+                                Age not available
+                            </span>
                         </span>
+
 
                         <span>
                             <i class="fa-solid fa-location-dot"></i>
-                            San Juan, Trinidad
+
+                            <span id="patientAddress">
+                                Address not available
+                            </span>
                         </span>
+
                     </div>
+
                 </div>
 
             </div>
 
-            <button class="view-profile-btn">
+
+            <button
+                class="view-profile-btn"
+                id="viewPatientProfile">
+
                 View Profile
+
             </button>
 
         </section>
 
 
-        <!-- =========================
-             HEALTH SUMMARY
-        ========================== -->
+
+        <!-- ======================================
+             SUMMARY CARDS
+        ======================================= -->
+
         <section class="section-block">
 
             <div class="section-heading">
+
                 <div>
-                    <h3>Today's Health Overview</h3>
-                    <p>Latest health information for Janice</p>
+                    <h3>Today's Care Overview</h3>
+                    <p>
+                        A quick summary of today's care information.
+                    </p>
                 </div>
+
             </div>
+
 
             <div class="health-grid">
 
-                <!-- Blood Pressure -->
+
+                <!-- MEDICATIONS -->
+
                 <article class="health-card">
 
                     <div class="health-card-header">
+
+                        <div class="icon-box">
+                            <i class="fa-solid fa-pills"></i>
+                        </div>
+
+                        <span
+                            class="status-badge success"
+                            id="medicationStatusBadge">
+                            Ready
+                        </span>
+
+                    </div>
+
+                    <p class="card-label">
+                        Medications
+                    </p>
+
+                    <h4 id="medicationCount">
+                        0
+                    </h4>
+
+                    <p class="measurement">
+                        medications scheduled
+                    </p>
+
+                    <p
+                        class="card-footer"
+                        id="medicationSummary">
+                        No medications added yet.
+                    </p>
+
+                </article>
+
+
+
+                <!-- APPOINTMENTS -->
+
+                <article class="health-card">
+
+                    <div class="health-card-header">
+
+                        <div class="icon-box">
+                            <i class="fa-regular fa-calendar"></i>
+                        </div>
+
+                        <span class="status-badge success">
+                            Scheduled
+                        </span>
+
+                    </div>
+
+                    <p class="card-label">
+                        Appointments
+                    </p>
+
+                    <h4 id="appointmentCount">
+                        0
+                    </h4>
+
+                    <p class="measurement">
+                        upcoming appointments
+                    </p>
+
+                    <p
+                        class="card-footer"
+                        id="appointmentSummary">
+                        No appointments added yet.
+                    </p>
+
+                </article>
+
+
+
+                <!-- CARE TASKS -->
+
+                <article class="health-card">
+
+                    <div class="health-card-header">
+
+                        <div class="icon-box">
+                            <i class="fa-solid fa-list-check"></i>
+                        </div>
+
+                        <span
+                            class="status-badge warning"
+                            id="taskStatusBadge">
+                            Pending
+                        </span>
+
+                    </div>
+
+                    <p class="card-label">
+                        Care Tasks
+                    </p>
+
+                    <h4 id="taskCount">
+                        0
+                    </h4>
+
+                    <p class="measurement">
+                        care responsibilities
+                    </p>
+
+                    <p
+                        class="card-footer"
+                        id="taskSummary">
+                        No care tasks added yet.
+                    </p>
+
+                </article>
+
+
+
+                <!-- HEALTH MONITORING -->
+
+                <article class="health-card">
+
+                    <div class="health-card-header">
+
                         <div class="icon-box">
                             <i class="fa-solid fa-heart-pulse"></i>
                         </div>
 
-                        <span class="status-badge warning">
-                            Attention
-                        </span>
-                    </div>
-
-                    <p class="card-label">Blood Pressure</p>
-
-                    <h4>130/80</h4>
-
-                    <p class="measurement">
-                        mmHg
-                    </p>
-
-                    <p class="card-footer">
-                        Recorded today at 8:30 AM
-                    </p>
-
-                </article>
-
-
-                <!-- Blood Glucose -->
-                <article class="health-card">
-
-                    <div class="health-card-header">
-                        <div class="icon-box">
-                            <i class="fa-solid fa-droplet"></i>
-                        </div>
-
-                        <span class="status-badge danger">
-                            Low
-                        </span>
-                    </div>
-
-                    <p class="card-label">Blood Glucose</p>
-
-                    <h4>55</h4>
-
-                    <p class="measurement">
-                        mg/dL
-                    </p>
-
-                    <p class="card-footer">
-                        Recorded today at 8:45 AM
-                    </p>
-
-                </article>
-
-
-                <!-- Medication -->
-                <article class="health-card">
-
-                    <div class="health-card-header">
-                        <div class="icon-box">
-                            <i class="fa-solid fa-pills"></i>
-                        </div>
-
                         <span class="status-badge success">
-                            On Track
+                            Active
                         </span>
+
                     </div>
 
-                    <p class="card-label">Medication</p>
+                    <p class="card-label">
+                        Health Monitoring
+                    </p>
 
-                    <h4>3 of 4</h4>
+                    <h4 id="healthMetricCount">
+                        0
+                    </h4>
 
                     <p class="measurement">
-                        doses taken
+                        health areas tracked
                     </p>
 
-                    <p class="card-footer">
-                        1 medication remaining today
-                    </p>
-
-                </article>
-
-
-                <!-- Activity -->
-                <article class="health-card">
-
-                    <div class="health-card-header">
-                        <div class="icon-box">
-                            <i class="fa-solid fa-person-walking"></i>
-                        </div>
-
-                        <span class="status-badge success">
-                            Good
-                        </span>
-                    </div>
-
-                    <p class="card-label">Activity</p>
-
-                    <h4>3,420</h4>
-
-                    <p class="measurement">
-                        steps today
-                    </p>
-
-                    <p class="card-footer">
-                        Daily goal: 4,000 steps
+                    <p
+                        class="card-footer"
+                        id="healthMetricSummary">
+                        No monitoring selected.
                     </p>
 
                 </article>
@@ -246,245 +359,219 @@
         </section>
 
 
-        <!-- =========================
-             ATTENTION SECTION
-        ========================== -->
+
+        <!-- ======================================
+             HEALTH MONITORING CARDS
+        ======================================= -->
+
         <section class="section-block">
 
             <div class="section-heading">
 
                 <div>
-                    <h3>Requires Attention</h3>
-                    <p>2 items need your attention</p>
+                    <h3>Health Monitoring</h3>
+
+                    <p>
+                        Health information selected during care setup.
+                    </p>
                 </div>
 
-                <a href="todo.html">View all</a>
+                <a href="reports.html">
+                    View Reports
+                </a>
 
             </div>
 
 
-            <div class="attention-list">
+            <div
+                class="health-grid"
+                id="healthMonitoringCards">
 
-                <article class="attention-item">
-
-                    <div class="attention-icon medication-alert">
-                        <i class="fa-solid fa-pills"></i>
-                    </div>
-
-                    <div class="attention-content">
-
-                        <h4>Medication not confirmed</h4>
-
-                        <p>
-                            Janice has not confirmed her 1:00 PM medication.
-                        </p>
-
-                        <span>Due 35 minutes ago</span>
-
-                    </div>
-
-                    <button class="details-btn">
-                        View Details
-                    </button>
-
-                </article>
-
-
-                <article class="attention-item">
-
-                    <div class="attention-icon health-alert">
-                        <i class="fa-solid fa-heart-pulse"></i>
-                    </div>
-
-                    <div class="attention-content">
-
-                        <h4>Health reading requires review</h4>
-
-                        <p>
-                            A recent health measurement has been flagged for review.
-                        </p>
-
-                        <span>Recorded this morning</span>
-
-                    </div>
-
-                    <button class="details-btn">
-                        Review
-                    </button>
-
-                </article>
+                <!-- Created using JavaScript -->
 
             </div>
 
         </section>
 
 
-        <!-- =========================
-             TWO COLUMN SECTION
-        ========================== -->
+
+        <!-- ======================================
+             UPCOMING + TASKS
+        ======================================= -->
+
         <section class="dashboard-columns">
 
-            <!-- Upcoming -->
+
+            <!-- UPCOMING APPOINTMENTS -->
+
             <div class="dashboard-panel">
 
                 <div class="section-heading">
 
                     <div>
-                        <h3>Upcoming</h3>
-                        <p>Appointments and important events</p>
+                        <h3>Upcoming Events</h3>
+
+                        <p>
+                            Appointments and important events.
+                        </p>
                     </div>
 
-                    <a href="events.html">View all</a>
+
+                    <a href="events.html">
+                        View all
+                    </a>
 
                 </div>
 
 
-                <div class="event">
+                <div id="dashboardAppointments">
 
-                    <div class="event-date">
-                        <strong>29</strong>
-                        <span>SEP</span>
-                    </div>
-
-                    <div class="event-information">
-
-                        <h4>Doctor's Appointment</h4>
-
-                        <p>
-                            <i class="fa-regular fa-clock"></i>
-                            10:30 AM
-                        </p>
-
-                        <p>
-                            <i class="fa-solid fa-location-dot"></i>
-                            Medical Centre
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="event">
-
-                    <div class="event-date">
-                        <strong>02</strong>
-                        <span>OCT</span>
-                    </div>
-
-                    <div class="event-information">
-
-                        <h4>Prescription Refill</h4>
-
-                        <p>
-                            <i class="fa-solid fa-pills"></i>
-                            Blood pressure medication
-                        </p>
-
-                    </div>
+                    <!-- Generated by JavaScript -->
 
                 </div>
 
             </div>
 
 
-            <!-- Recent Activity -->
+
+            <!-- CARE TASKS -->
+
             <div class="dashboard-panel">
 
                 <div class="section-heading">
 
                     <div>
-                        <h3>Recent Activity</h3>
-                        <p>Latest updates from Janice's CareCircle</p>
+                        <h3>Care Tasks</h3>
+
+                        <p>
+                            Upcoming caregiving responsibilities.
+                        </p>
                     </div>
 
-                    <a href="#">View all</a>
+
+                    <a href="todo.html">
+                        View all
+                    </a>
 
                 </div>
 
 
-                <div class="activity">
+                <div id="dashboardTasks">
 
-                    <div class="activity-icon">
-                        <i class="fa-solid fa-check"></i>
-                    </div>
-
-                    <div>
-                        <h4>Morning medication taken</h4>
-                        <p>Janice confirmed her medication.</p>
-                        <span>8:05 AM</span>
-                    </div>
-
-                </div>
-
-
-                <div class="activity">
-
-                    <div class="activity-icon">
-                        <i class="fa-solid fa-utensils"></i>
-                    </div>
-
-                    <div>
-                        <h4>Breakfast completed</h4>
-                        <p>Daily wellness check updated.</p>
-                        <span>8:20 AM</span>
-                    </div>
-
-                </div>
-
-
-                <div class="activity">
-
-                    <div class="activity-icon">
-                        <i class="fa-solid fa-face-smile"></i>
-                    </div>
-
-                    <div>
-                        <h4>Wellness check-in</h4>
-                        <p>Janice reported feeling good today.</p>
-                        <span>9:10 AM</span>
-                    </div>
+                    <!-- Generated by JavaScript -->
 
                 </div>
 
             </div>
 
         </section>
+
+
+
+        <!-- ======================================
+             MEDICATIONS
+        ======================================= -->
+
+        <section class="section-block dashboard-medication-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <h3>Today's Medications</h3>
+
+                    <p>
+                        Medication schedule for today.
+                    </p>
+                </div>
+
+
+                <a href="medications.html">
+                    View all
+                </a>
+
+            </div>
+
+
+            <div
+                class="dashboard-medication-list"
+                id="dashboardMedicationList">
+
+                <!-- Generated through JavaScript -->
+
+            </div>
+
+        </section>
+
+
 
     </main>
 
 
-    <!-- =========================
-         BOTTOM NAVIGATION
-    ========================== -->
+
+    <!-- ======================================
+         NAVIGATION
+    ======================================= -->
+
     <nav class="bottom-nav">
 
-        <a href="index.html" class="active">
+        <a
+            href="dashboard.html"
+            class="active">
+
             <i class="fa-solid fa-house"></i>
-            <span>Home</span>
+
+            <span>
+                Home
+            </span>
+
         </a>
+
 
         <a href="todo.html">
+
             <i class="fa-solid fa-list-check"></i>
-            <span>To-Do</span>
+
+            <span>
+                To-Do
+            </span>
+
         </a>
+
 
         <a href="events.html">
+
             <i class="fa-regular fa-calendar"></i>
-            <span>Events</span>
+
+            <span>
+                Events
+            </span>
+
         </a>
+
 
         <a href="medications.html">
+
             <i class="fa-solid fa-pills"></i>
-            <span>Medications</span>
+
+            <span>
+                Medications
+            </span>
+
         </a>
 
+
         <a href="reports.html">
+
             <i class="fa-solid fa-chart-line"></i>
-            <span>Reports</span>
+
+            <span>
+                Reports
+            </span>
+
         </a>
 
     </nav>
+
 
 
     <script src="script.js"></script>

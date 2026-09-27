@@ -720,3 +720,929 @@ a {
     }
 
 }
+/* =========================================
+   ACCOUNT / ONBOARDING SETUP
+========================================= */
+
+.setup-body {
+    min-height: 100vh;
+    background: #f4f8f7;
+    padding: 0;
+}
+
+.setup-container {
+    width: 92%;
+    max-width: 750px;
+
+    margin: 0 auto;
+
+    padding: 45px 0 80px;
+}
+
+.setup-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 40px;
+}
+
+.setup-logo h1 {
+    font-size: 24px;
+    color: #263b39;
+}
+
+.setup-logo p {
+    font-size: 12px;
+    color: #71807e;
+}
+
+
+/* Progress */
+
+.setup-progress {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    margin-bottom: 35px;
+}
+
+.progress-step {
+    text-align: center;
+    width: 100px;
+}
+
+.progress-step span {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+
+    margin: 0 auto 7px;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #dfe8e6;
+    color: #758381;
+
+    font-weight: bold;
+}
+
+.progress-step.active span {
+    background: #15997d;
+    color: white;
+}
+
+.progress-step p {
+    font-size: 11px;
+    color: #71807e;
+}
+
+.progress-line {
+    width: 80px;
+    height: 2px;
+
+    background: #dfe8e6;
+
+    margin-top: 17px;
+}
+
+
+/* Setup form */
+
+.setup-card {
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 18px;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+}
+
+.setup-heading {
+    margin-bottom: 30px;
+}
+
+.setup-heading h2 {
+    font-size: 25px;
+
+    margin-bottom: 8px;
+
+    color: #263b39;
+}
+
+.setup-heading > p:last-child {
+    color: #71807e;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* Forms */
+
+.form-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    color: #465957;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    border: 1px solid #d9e2e0;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+
+    outline: none;
+
+    background: white;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #15997d;
+
+    box-shadow: 0 0 0 3px rgba(21, 153, 125, 0.08);
+}
+
+.setup-next-btn {
+    width: 100%;
+
+    border: none;
+
+    background: #15997d;
+    color: white;
+
+    padding: 14px;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+}
+
+.setup-next-btn:hover {
+    opacity: 0.92;
+}
+
+
+@media (max-width: 600px) {
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .setup-card {
+        padding: 25px 20px;
+    }
+
+    .progress-line {
+        width: 35px;
+    }
+
+}
+/* =========================================
+   PERSON IN CARE SETUP
+========================================= */
+
+.optional-label {
+    font-weight: normal;
+    color: #8a9795;
+    font-size: 11px;
+}
+
+.form-group textarea {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    border: 1px solid #d9e2e0;
+
+    border-radius: 9px;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    resize: vertical;
+
+    outline: none;
+}
+
+.form-group textarea:focus {
+    border-color: #15997d;
+
+    box-shadow:
+        0 0 0 3px rgba(21, 153, 125, 0.08);
+}
+
+.field-help {
+    margin-top: 6px;
+
+    font-size: 11px;
+
+    color: #899593;
+}
+
+
+/* Completed setup step */
+
+.progress-step.completed span {
+    background: #15997d;
+    color: white;
+}
+
+.completed-line {
+    background: #15997d;
+}
+
+
+/* Divider */
+
+.form-divider {
+    margin: 30px 0 20px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #e6eceb;
+}
+
+.form-divider h3 {
+    color: #304442;
+
+    font-size: 16px;
+
+    margin-bottom: 5px;
+}
+
+.form-divider h3 i {
+    color: #15997d;
+
+    margin-right: 7px;
+}
+
+.form-divider p {
+    color: #7b8987;
+
+    font-size: 12px;
+}
+
+
+/* Back + Continue */
+
+.setup-buttons {
+    display: grid;
+
+    grid-template-columns: 140px 1fr;
+
+    gap: 12px;
+
+    margin-top: 10px;
+}
+
+.setup-back-btn {
+    border: 1px solid #ccd8d6;
+
+    background: white;
+    color: #516360;
+
+    border-radius: 9px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.setup-back-btn:hover {
+    background: #f4f7f6;
+}
+
+
+@media (max-width: 600px) {
+
+    .setup-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .setup-back-btn {
+        padding: 13px;
+        order: 2;
+    }
+
+}
+/* =========================================
+   CARE SETUP PAGE
+========================================= */
+
+.care-setup-container {
+    width: 92%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    padding: 45px 0 80px;
+}
+
+
+.care-setup-header {
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+
+.care-setup-header h2 {
+    font-size: 28px;
+
+    margin-bottom: 8px;
+
+    color: #263b39;
+}
+
+
+.care-setup-header > p:last-child {
+    color: #71807e;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* ================================
+   CARDS
+================================ */
+
+.care-setup-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 22px;
+}
+
+
+.care-setup-card {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 6px 22px
+        rgba(0, 0, 0, 0.05);
+
+    align-self: start;
+}
+
+
+.care-card-top {
+    display: flex;
+
+    gap: 15px;
+
+    margin-bottom: 22px;
+}
+
+
+.care-card-top h3 {
+    font-size: 18px;
+
+    color: #2e403e;
+
+    margin-bottom: 5px;
+}
+
+
+.care-card-top p {
+    color: #7b8887;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+.care-card-icon {
+    width: 46px;
+    height: 46px;
+
+    min-width: 46px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 19px;
+}
+
+
+.medication-icon {
+    color: #168f77;
+    background: #e1f6f0;
+}
+
+
+.appointment-icon {
+    color: #4c7fb8;
+    background: #e8f2fc;
+}
+
+
+.task-icon {
+    color: #8a68ae;
+    background: #f1eafa;
+}
+
+
+.health-icon {
+    color: #d66161;
+    background: #fdeaea;
+}
+
+
+/* ================================
+   ADD BUTTON
+================================ */
+
+.care-add-btn {
+    width: 100%;
+
+    padding: 11px;
+
+    border: 1px dashed #15997d;
+
+    border-radius: 9px;
+
+    background: #f5fcfa;
+
+    color: #15997d;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+
+.care-add-btn i {
+    margin-right: 5px;
+}
+
+
+.care-add-btn:hover {
+    background: #eaf8f4;
+}
+
+
+/* ================================
+   MINI FORMS
+================================ */
+
+.mini-form {
+    border-top: 1px solid #e5ecea;
+
+    margin-top: 20px;
+
+    padding-top: 20px;
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+
+.mini-form-buttons {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 8px;
+}
+
+
+.mini-save-btn,
+.mini-cancel-btn {
+    padding: 9px 13px;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+
+.mini-save-btn {
+    border: none;
+
+    background: #15997d;
+
+    color: white;
+}
+
+
+.mini-cancel-btn {
+    border: 1px solid #ccd8d6;
+
+    background: white;
+
+    color: #657471;
+}
+
+
+/* ================================
+   SAVED ITEMS
+================================ */
+
+.setup-item-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-bottom: 12px;
+}
+
+
+.setup-saved-item {
+    background: #f7faf9;
+
+    border: 1px solid #e3eae9;
+
+    padding: 11px 12px;
+
+    border-radius: 8px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+.setup-saved-item div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.setup-saved-item strong {
+    font-size: 13px;
+
+    color: #324442;
+}
+
+
+.setup-saved-item span {
+    font-size: 11px;
+
+    color: #7f8d8b;
+}
+
+
+.setup-saved-item button {
+    border: none;
+
+    background: transparent;
+
+    color: #b36060;
+
+    cursor: pointer;
+}
+
+
+/* ================================
+   HEALTH MONITORING
+================================ */
+
+.health-options {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 10px;
+}
+
+
+.health-option input {
+    display: none;
+}
+
+
+.health-option span {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 11px;
+
+    border: 1px solid #dfe7e5;
+
+    border-radius: 9px;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    color: #556663;
+}
+
+
+.health-option span i {
+    color: #15997d;
+}
+
+
+.health-option input:checked + span {
+    background: #e6f7f2;
+
+    color: #147a67;
+
+    border-color: #15997d;
+}
+
+
+/* ================================
+   FINISH SETUP
+================================ */
+
+.care-setup-actions {
+    margin-top: 30px;
+
+    display: grid;
+
+    grid-template-columns:
+        150px 1fr;
+
+    gap: 12px;
+}
+
+
+.finish-setup-btn {
+    border: none;
+
+    background: #15997d;
+
+    color: white;
+
+    border-radius: 9px;
+
+    padding: 14px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.finish-setup-btn i {
+    margin-left: 5px;
+}
+
+
+.finish-setup-btn:hover {
+    opacity: 0.92;
+}
+
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 750px) {
+
+    .care-setup-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .health-options {
+        grid-template-columns: 1fr;
+    }
+
+
+    .care-setup-actions {
+        grid-template-columns: 1fr;
+    }
+
+
+    .care-setup-actions .setup-back-btn {
+        padding: 13px;
+        order: 2;
+    }
+
+}
+/* =========================================
+   DYNAMIC DASHBOARD
+========================================= */
+
+.dashboard-empty {
+    width: 100%;
+
+    padding: 30px 20px;
+
+    text-align: center;
+
+    border: 1px dashed #d6e1df;
+
+    border-radius: 10px;
+
+    color: #7c8987;
+}
+
+
+.dashboard-empty i {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 25px;
+
+    color: #15997d;
+}
+
+
+.dashboard-empty p {
+    font-size: 13px;
+
+    margin-bottom: 8px;
+}
+
+
+.dashboard-empty a {
+    color: #15997d;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+
+.no-reading {
+    color: #a1adaa;
+}
+
+
+
+/* =========================================
+   DASHBOARD MEDICATIONS
+========================================= */
+
+.dashboard-medication-section {
+    margin-top: 35px;
+}
+
+
+.dashboard-medication-list {
+    background: white;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 4px 16px
+        rgba(0, 0, 0, 0.04);
+}
+
+
+.dashboard-medication {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 16px 20px;
+
+    border-bottom: 1px solid #edf0f0;
+}
+
+
+.dashboard-medication:last-child {
+    border-bottom: none;
+}
+
+
+.dashboard-medication-icon {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #e8f7f3;
+
+    color: #15997d;
+}
+
+
+.dashboard-medication-info {
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1;
+}
+
+
+.dashboard-medication-info strong {
+    font-size: 14px;
+}
+
+
+.dashboard-medication-info span {
+    margin-top: 3px;
+
+    color: #7a8886;
+
+    font-size: 12px;
+}
+
+
+.dashboard-medication-time {
+    color: #586865;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+
+
+@media (max-width: 600px) {
+
+    .dashboard-medication {
+        flex-wrap: wrap;
+    }
+
+
+    .dashboard-medication-time {
+        margin-left: auto;
+    }
+
+}
