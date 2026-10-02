@@ -3,195 +3,141 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CareCircle | Get Started</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
+    <title>CareCircle | Keeping Care Connected</title>
+
+    <!-- Main CareCircle stylesheet -->
     <link rel="stylesheet" href="style.css">
-
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
-<body class="setup-body">
 
-    <div class="setup-container">
+<body>
 
-        <!-- Logo -->
-        <div class="setup-logo">
+    <main class="app-container">
 
-            <div class="logo-icon">
-                <i class="fa-solid fa-heart-pulse"></i>
+        <!-- ================================
+             HEADER / LOGO
+             ================================ -->
+
+        <header class="app-header">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    ♡
+                </div>
+
+                <div class="logo-text">
+                    CareCircle
+                </div>
+
             </div>
 
-            <div>
-                <h1>CareCircle</h1>
-                <p>Caring together. Staying connected.</p>
-            </div>
+            <p class="tagline">
+                Keeping Care Connected
+            </p>
 
-        </div>
-
-
-        <!-- Progress -->
-        <div class="setup-progress">
-
-            <div class="progress-step active">
-                <span>1</span>
-                <p>Your Profile</p>
-            </div>
-
-            <div class="progress-line"></div>
-
-            <div class="progress-step">
-                <span>2</span>
-                <p>Person in Care</p>
-            </div>
-
-            <div class="progress-line"></div>
-
-            <div class="progress-step">
-                <span>3</span>
-                <p>Care Information</p>
-            </div>
-
-        </div>
+        </header>
 
 
-        <!-- Setup Card -->
-        <section class="setup-card">
+        <!-- ================================
+             CREATE ACCOUNT
+             ================================ -->
 
-            <div class="setup-heading">
+        <section class="account-section">
 
-                <p class="small-heading">Welcome to CareCircle</p>
+            <h1>Create Account</h1>
 
-                <h2>Let's create your caregiver profile</h2>
+
+            <!-- CAREGIVER -->
+
+            <button
+                class="account-card"
+                id="caregiverButton"
+                type="button"
+            >
+
+                <div class="user-icon">
+                    👤
+                </div>
+
+                <div class="account-info">
+
+                    <h2>Caregiver</h2>
+
+                    <p>
+                        I want to support my family
+                        in care activities.
+                    </p>
+
+                </div>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <!-- CARE RECIPIENT -->
+
+            <button
+                class="account-card"
+                id="recipientButton"
+                type="button"
+            >
+
+                <div class="user-icon">
+                    👤
+                </div>
+
+                <div class="account-info">
+
+                    <h2>Care Recipient</h2>
+
+                    <p>
+                        I want to view and manage my
+                        health while connecting with
+                        my family care circle.
+                    </p>
+
+                </div>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <!-- SIGN IN -->
+
+            <div class="signin-section">
 
                 <p>
-                    Tell us a little about yourself before setting up
-                    the person you will be caring for.
+                    Already Have An Account?
                 </p>
 
-            </div>
-
-
-            <form id="caregiverForm">
-
-                <div class="form-row">
-
-                    <div class="form-group">
-
-                        <label for="firstName">
-                            First Name
-                        </label>
-
-                        <input
-                            type="text"
-                            id="firstName"
-                            required>
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="lastName">
-                            Last Name
-                        </label>
-
-                        <input
-                            type="text"
-                            id="lastName"
-                            required>
-
-                    </div>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="email">
-                        Email Address
-                    </label>
-
-                    <input
-                        type="email"
-                        id="email"
-                        required>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="phone">
-                        Phone Number
-                    </label>
-
-                    <input
-                        type="tel"
-                        id="phone"
-                        placeholder="868-555-1234"
-                        required>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="relationship">
-                        Your relationship to the person in your care
-                    </label>
-
-                    <select id="relationship" required>
-
-                        <option value="">
-                            Select relationship
-                        </option>
-
-                        <option value="Son">Son</option>
-
-                        <option value="Daughter">Daughter</option>
-
-                        <option value="Spouse">Spouse</option>
-
-                        <option value="Sibling">Sibling</option>
-
-                        <option value="Grandchild">Grandchild</option>
-
-                        <option value="Relative">Other Relative</option>
-
-                        <option value="Professional Caregiver">
-                            Professional Caregiver
-                        </option>
-
-                        <option value="Friend">Friend</option>
-
-                        <option value="Other">Other</option>
-
-                    </select>
-
-                </div>
-
-
                 <button
-                    type="submit"
-                    class="setup-next-btn">
-
-                    Continue
-
-                    <i class="fa-solid fa-arrow-right"></i>
-
+                    class="signin-button"
+                    id="signinButton"
+                    type="button"
+                >
+                    Sign In
                 </button>
 
-            </form>
+            </div>
 
         </section>
 
-    </div>
+    </main>
 
 
-    <script src="script.js"></script>
+    <!-- Main CareCircle JavaScript -->
+    <script src="app.js"></script>
 
 </body>
 

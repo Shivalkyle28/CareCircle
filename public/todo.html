@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CareCircle | ToDo</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+<main class="dashboard-app todo-app">
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="dashboard-header">
+
+        <a
+            href="dashboard.html"
+            class="todo-back-button"
+            aria-label="Back to dashboard"
+        >
+            ←
+        </a>
+
+
+        <div class="dashboard-brand">
+
+            <div class="dashboard-logo-icon">
+                ♡
+            </div>
+
+            <span>
+                CareCircle
+            </span>
+
+        </div>
+
+
+        <button
+            class="profile-button"
+            type="button"
+            id="todoProfileButton"
+            aria-label="View profile"
+        >
+            👤
+        </button>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         PAGE CONTENT
+         ===================================================== -->
+
+    <div class="dashboard-content">
+
+
+        <!-- =================================================
+             PAGE TITLE
+             ================================================= -->
+
+        <section class="todo-page-header">
+
+            <div>
+
+                <p class="section-kicker">
+                    Care Management
+                </p>
+
+                <h1>
+                    ToDo
+                </h1>
+
+                <p class="todo-subtitle">
+                    Manage medications, appointments
+                    and daily care tasks.
+                </p>
+
+            </div>
+
+
+            <button
+                class="todo-add-button"
+                id="addTaskButton"
+                type="button"
+            >
+                + Add New
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SUMMARY
+             ================================================= -->
+
+        <section class="todo-summary">
+
+            <div class="todo-summary-card">
+
+                <span
+                    class="todo-summary-number"
+                    id="pendingCount"
+                >
+                    0
+                </span>
+
+                <span class="todo-summary-label">
+                    Pending
+                </span>
+
+            </div>
+
+
+            <div class="todo-summary-card">
+
+                <span
+                    class="todo-summary-number"
+                    id="todayCount"
+                >
+                    0
+                </span>
+
+                <span class="todo-summary-label">
+                    Today
+                </span>
+
+            </div>
+
+
+            <div class="todo-summary-card">
+
+                <span
+                    class="todo-summary-number"
+                    id="overdueCount"
+                >
+                    0
+                </span>
+
+                <span class="todo-summary-label">
+                    Overdue
+                </span>
+
+            </div>
+
+
+            <div class="todo-summary-card">
+
+                <span
+                    class="todo-summary-number"
+                    id="completedCount"
+                >
+                    0
+                </span>
+
+                <span class="todo-summary-label">
+                    Completed
+                </span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FILTERS
+             ================================================= -->
+
+        <section class="todo-filter-section">
+
+            <div
+                class="todo-filters"
+                role="group"
+                aria-label="Filter tasks"
+            >
+
+                <button
+                    class="todo-filter active"
+                    type="button"
+                    data-filter="all"
+                >
+                    All
+                </button>
+
+
+                <button
+                    class="todo-filter"
+                    type="button"
+                    data-filter="today"
+                >
+                    Today
+                </button>
+
+
+                <button
+                    class="todo-filter"
+                    type="button"
+                    data-filter="overdue"
+                >
+                    Overdue
+                </button>
+
+
+                <button
+                    class="todo-filter"
+                    type="button"
+                    data-filter="completed"
+                >
+                    Completed
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             TASK LIST HEADING
+             ================================================= -->
+
+        <section class="todo-list-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="section-kicker">
+                        Tasks
+                    </p>
+
+                    <h2 id="taskListHeading">
+                        All Tasks
+                    </h2>
+
+                </div>
+
+
+                <a
+                    href="events.html"
+                    class="text-link"
+                >
+                    View Calendar →
+                </a>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 TASK LIST
+                 JavaScript will populate this.
+                 ================================================= -->
+
+            <div
+                class="todo-list"
+                id="todoList"
+            >
+
+                <div class="empty-dashboard-state">
+
+                    <span class="empty-icon">
+                        ✓
+                    </span>
+
+                    <p>
+                        No tasks have been added yet.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         ADD / EDIT TASK MODAL
+         ===================================================== -->
+
+    <div
+        class="modal-overlay hidden"
+        id="taskModal"
+    >
+
+        <div
+            class="task-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="taskModalTitle"
+        >
+
+            <div class="modal-header">
+
+                <div>
+
+                    <p class="section-kicker">
+                        CareCircle
+                    </p>
+
+                    <h2 id="taskModalTitle">
+                        Add New Task
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="modal-close"
+                    id="closeTaskModal"
+                    aria-label="Close task form"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+
+            <!-- =============================================
+                 TASK FORM
+                 ============================================= -->
+
+            <form id="taskForm">
+
+
+                <!-- Hidden ID used when editing -->
+
+                <input
+                    type="hidden"
+                    id="taskId"
+                >
+
+
+
+                <!-- TASK TYPE -->
+
+                <div class="form-group">
+
+                    <label
+                        class="form-label"
+                        for="taskType"
+                    >
+                        Task Type
+                    </label>
+
+
+                    <select
+                        class="form-control"
+                        id="taskType"
+                        required
+                    >
+
+                        <option value="">
+                            Select Task Type
+                        </option>
+
+                        <option value="Medication">
+                            Medication
+                        </option>
+
+                        <option value="Appointment">
+                            Appointment
+                        </option>
+
+                        <option value="Meal">
+                            Meal
+                        </option>
+
+                        <option value="Exercise">
+                            Exercise
+                        </option>
+
+                        <option value="Personal Care">
+                            Personal Care
+                        </option>
+
+                        <option value="General">
+                            General
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- TITLE -->
+
+                <div class="form-group">
+
+                    <label
+                        class="form-label"
+                        for="taskTitle"
+                    >
+                        Task
+                    </label>
+
+
+                    <input
+                        class="form-control"
+                        type="text"
+                        id="taskTitle"
+                        placeholder="e.g. Morning Medication"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- DATE + TIME -->
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label
+                            class="form-label"
+                            for="taskDate"
+                        >
+                            Date
+                        </label>
+
+
+                        <input
+                            class="form-control"
+                            type="date"
+                            id="taskDate"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label
+                            class="form-label"
+                            for="taskTime"
+                        >
+                            Time
+                        </label>
+
+
+                        <input
+                            class="form-control"
+                            type="time"
+                            id="taskTime"
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ASSIGNED TO -->
+
+                <div class="form-group">
+
+                    <label
+                        class="form-label"
+                        for="assignedTo"
+                    >
+                        Assigned To
+                    </label>
+
+
+                    <input
+                        class="form-control"
+                        type="text"
+                        id="assignedTo"
+                        placeholder="Caregiver or care recipient"
+                    >
+
+                </div>
+
+
+
+                <!-- ASSIGNED BY -->
+
+                <div class="form-group">
+
+                    <label
+                        class="form-label"
+                        for="assignedBy"
+                    >
+                        Assigned By
+                    </label>
+
+
+                    <input
+                        class="form-control"
+                        type="text"
+                        id="assignedBy"
+                        placeholder="Name"
+                    >
+
+                </div>
+
+
+
+                <!-- NOTES -->
+
+                <div class="form-group">
+
+                    <label
+                        class="form-label"
+                        for="taskNotes"
+                    >
+                        Details / Notes
+                    </label>
+
+
+                    <textarea
+                        class="form-control"
+                        id="taskNotes"
+                        rows="3"
+                        placeholder="Additional instructions..."
+                    ></textarea>
+
+                </div>
+
+
+
+                <!-- STATUS -->
+
+                <div class="form-group">
+
+                    <label
+                        class="form-label"
+                        for="taskStatus"
+                    >
+                        Status
+                    </label>
+
+
+                    <select
+                        class="form-control"
+                        id="taskStatus"
+                    >
+
+                        <option value="Pending">
+                            Pending
+                        </option>
+
+                        <option value="Completed">
+                            Completed
+                        </option>
+
+                        <option value="Missed">
+                            Missed
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- BUTTONS -->
+
+                <div class="task-form-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        id="cancelTaskButton"
+                    >
+                        Cancel
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Save Task
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         TASK DETAILS MODAL
+         ===================================================== -->
+
+    <div
+        class="modal-overlay hidden"
+        id="taskDetailsModal"
+    >
+
+        <div
+            class="task-modal task-details-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="taskDetailsTitle"
+        >
+
+            <div class="modal-header">
+
+                <div>
+
+                    <p class="section-kicker">
+                        Task Details
+                    </p>
+
+                    <h2 id="taskDetailsTitle">
+                        Task
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="modal-close"
+                    id="closeTaskDetails"
+                    aria-label="Close task details"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <div id="taskDetailsContent">
+            </div>
+
+
+            <div class="task-details-actions">
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    id="editTaskButton"
+                >
+                    Edit
+                </button>
+
+
+                <button
+                    type="button"
+                    class="task-delete-button"
+                    id="deleteTaskButton"
+                >
+                    Delete
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         BOTTOM NAVIGATION
+         ===================================================== -->
+
+    <nav class="bottom-navigation">
+
+        <a
+            href="dashboard.html"
+            class="bottom-nav-item"
+        >
+
+            <span class="bottom-nav-icon">
+                ⌂
+            </span>
+
+            <span>
+                Home
+            </span>
+
+        </a>
+
+
+        <a
+            href="todo.html"
+            class="bottom-nav-item active"
+        >
+
+            <span class="bottom-nav-icon">
+                ✓
+            </span>
+
+            <span>
+                ToDo
+            </span>
+
+        </a>
+
+
+        <button
+            type="button"
+            class="bottom-nav-item bottom-quick-add"
+            id="todoQuickAdd"
+        >
+
+            <span class="bottom-add-icon">
+                +
+            </span>
+
+            <span>
+                Add
+            </span>
+
+        </button>
+
+
+        <a
+            href="events.html"
+            class="bottom-nav-item"
+        >
+
+            <span class="bottom-nav-icon">
+                ◷
+            </span>
+
+            <span>
+                Events
+            </span>
+
+        </a>
+
+
+        <a
+            href="reports.html"
+            class="bottom-nav-item"
+        >
+
+            <span class="bottom-nav-icon">
+                ▥
+            </span>
+
+            <span>
+                Reports
+            </span>
+
+        </a>
+
+    </nav>
+
+
+</main>
+
+
+<script src="todo.js"></script>
+
+</body>
+
+</html>

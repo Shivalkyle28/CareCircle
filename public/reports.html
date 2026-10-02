@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>CareCircle | Reports</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+
+<body>
+
+<main class="dashboard-app reports-app">
+
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="dashboard-header">
+
+        <a
+            href="dashboard.html"
+            class="todo-back-button"
+            aria-label="Back to dashboard"
+        >
+            ←
+        </a>
+
+
+        <div class="dashboard-brand">
+
+            <div class="dashboard-logo-icon">
+                ♡
+            </div>
+
+            <span>
+                CareCircle
+            </span>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="profile-button"
+            id="reportsProfileButton"
+            aria-label="View profile"
+        >
+            👤
+        </button>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <div class="dashboard-content">
+
+
+        <!-- =================================================
+             PAGE HEADER
+             ================================================= -->
+
+        <section class="reports-page-header">
+
+            <div>
+
+                <p class="section-kicker">
+                    Health Monitoring
+                </p>
+
+                <h1>
+                    Reports
+                </h1>
+
+                <p class="reports-subtitle">
+                    Review health readings and care
+                    activity over time.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="todo-add-button"
+                id="reportsRecordVitals"
+            >
+                + Record
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             REPORT VIEW TABS
+             ================================================= -->
+
+        <section class="report-tabs">
+
+            <button
+                type="button"
+                class="report-tab active"
+                data-report-view="daily"
+            >
+                Daily
+            </button>
+
+
+            <button
+                type="button"
+                class="report-tab"
+                data-report-view="vitals"
+            >
+                Vitals
+            </button>
+
+
+            <button
+                type="button"
+                class="report-tab"
+                data-report-view="overview"
+            >
+                Overview
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             DATE CONTROLS
+             ================================================= -->
+
+        <section class="report-date-controls">
+
+            <button
+                type="button"
+                class="calendar-arrow"
+                id="previousReportDate"
+                aria-label="Previous date"
+            >
+                ←
+            </button>
+
+
+            <div class="report-current-date">
+
+                <h2 id="reportDateHeading">
+                    Today
+                </h2>
+
+                <button
+                    type="button"
+                    class="calendar-today-button"
+                    id="reportTodayButton"
+                >
+                    Today
+                </button>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="calendar-arrow"
+                id="nextReportDate"
+                aria-label="Next date"
+            >
+                →
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             DAILY VIEW
+             ================================================= -->
+
+        <section
+            class="report-view"
+            id="dailyReportView"
+        >
+
+            <div class="report-section-heading">
+
+                <div>
+
+                    <p class="section-kicker">
+                        Daily Summary
+                    </p>
+
+                    <h2>
+                        Health & Wellness
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- DAILY HEALTH GRID -->
+
+            <div class="report-health-grid">
+
+
+                <!-- BLOOD PRESSURE -->
+
+                <article class="report-health-card">
+
+                    <div class="report-card-icon">
+                        ♥
+                    </div>
+
+                    <div>
+
+                        <p class="report-card-label">
+                            Blood Pressure
+                        </p>
+
+                        <p
+                            class="report-card-value"
+                            id="dailyBloodPressure"
+                        >
+                            --
+                        </p>
+
+                        <span class="report-card-unit">
+                            mmHg
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- BLOOD SUGAR -->
+
+                <article class="report-health-card">
+
+                    <div class="report-card-icon">
+                        +
+                    </div>
+
+                    <div>
+
+                        <p class="report-card-label">
+                            Blood Sugar
+                        </p>
+
+                        <p
+                            class="report-card-value"
+                            id="dailyBloodSugar"
+                        >
+                            --
+                        </p>
+
+                        <span class="report-card-unit">
+                            mg/dL
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- MEALS -->
+
+                <article class="report-health-card">
+
+                    <div class="report-card-icon">
+                        ◉
+                    </div>
+
+                    <div>
+
+                        <p class="report-card-label">
+                            Meals
+                        </p>
+
+                        <p
+                            class="report-card-value"
+                            id="dailyMeals"
+                        >
+                            0
+                        </p>
+
+                        <span class="report-card-unit">
+                            recorded
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- WATER -->
+
+                <article class="report-health-card">
+
+                    <div class="report-card-icon">
+                        ◉
+                    </div>
+
+                    <div>
+
+                        <p class="report-card-label">
+                            Water
+                        </p>
+
+                        <p
+                            class="report-card-value"
+                            id="dailyWater"
+                        >
+                            0
+                        </p>
+
+                        <span class="report-card-unit">
+                            glasses
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- ACTIVITY -->
+
+                <article class="report-health-card">
+
+                    <div class="report-card-icon">
+                        ↗
+                    </div>
+
+                    <div>
+
+                        <p class="report-card-label">
+                            Activity
+                        </p>
+
+                        <p
+                            class="report-card-value"
+                            id="dailyActivity"
+                        >
+                            0
+                        </p>
+
+                        <span class="report-card-unit">
+                            minutes
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- SLEEP -->
+
+                <article class="report-health-card">
+
+                    <div class="report-card-icon">
+                        ☾
+                    </div>
+
+                    <div>
+
+                        <p class="report-card-label">
+                            Sleep
+                        </p>
+
+                        <p
+                            class="report-card-value"
+                            id="dailySleep"
+                        >
+                            --
+                        </p>
+
+                        <span class="report-card-unit">
+                            hours
+                        </span>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+
+            <!-- DAILY TIMELINE -->
+
+            <section class="daily-timeline-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="section-kicker">
+                            Timeline
+                        </p>
+
+                        <h2>
+                            Today's Records
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="report-timeline"
+                    id="dailyTimeline"
+                >
+
+                    <div class="empty-dashboard-state">
+
+                        <span class="empty-icon">
+                            ▥
+                        </span>
+
+                        <p>
+                            No health records for this day.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+
+        <!-- =================================================
+             VITALS VIEW
+             ================================================= -->
+
+        <section
+            class="report-view hidden"
+            id="vitalsReportView"
+        >
+
+            <div class="report-section-heading">
+
+                <div>
+
+                    <p class="section-kicker">
+                        Vitals
+                    </p>
+
+                    <h2>
+                        Reading History
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- VITAL SELECTOR -->
+
+            <div class="vital-selector">
+
+                <button
+                    type="button"
+                    class="vital-filter active"
+                    data-vital-type="bloodPressure"
+                >
+                    Blood Pressure
+                </button>
+
+
+                <button
+                    type="button"
+                    class="vital-filter"
+                    data-vital-type="bloodSugar"
+                >
+                    Blood Sugar
+                </button>
+
+            </div>
+
+
+
+            <!-- SUMMARY -->
+
+            <div class="vital-summary-grid">
+
+                <article class="vital-summary-card">
+
+                    <span class="vital-summary-label">
+                        Latest
+                    </span>
+
+                    <strong id="vitalLatest">
+                        --
+                    </strong>
+
+                </article>
+
+
+                <article class="vital-summary-card">
+
+                    <span class="vital-summary-label">
+                        Average
+                    </span>
+
+                    <strong id="vitalAverage">
+                        --
+                    </strong>
+
+                </article>
+
+
+                <article class="vital-summary-card">
+
+                    <span class="vital-summary-label">
+                        Highest
+                    </span>
+
+                    <strong id="vitalHighest">
+                        --
+                    </strong>
+
+                </article>
+
+
+                <article class="vital-summary-card">
+
+                    <span class="vital-summary-label">
+                        Lowest
+                    </span>
+
+                    <strong id="vitalLowest">
+                        --
+                    </strong>
+
+                </article>
+
+            </div>
+
+
+
+            <!-- SIMPLE TREND AREA -->
+
+            <section class="trend-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="section-kicker">
+                            Trend
+                        </p>
+
+                        <h2 id="trendHeading">
+                            Blood Pressure History
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="trend-chart"
+                    id="trendChart"
+                >
+
+                    <div class="empty-dashboard-state">
+
+                        <span class="empty-icon">
+                            ↗
+                        </span>
+
+                        <p>
+                            Record readings to build
+                            your health trend.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- VITAL HISTORY -->
+
+            <section class="vital-history-section">
+
+                <div class="section-heading">
+
+                    <h2>
+                        Previous Readings
+                    </h2>
+
+                </div>
+
+
+                <div
+                    class="vital-history-list"
+                    id="vitalHistoryList"
+                >
+                </div>
+
+            </section>
+
+        </section>
+
+
+
+        <!-- =================================================
+             OVERVIEW VIEW
+             ================================================= -->
+
+        <section
+            class="report-view hidden"
+            id="overviewReportView"
+        >
+
+            <div class="report-section-heading">
+
+                <div>
+
+                    <p class="section-kicker">
+                        Overview
+                    </p>
+
+                    <h2>
+                        Care Summary
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- OVERVIEW STATISTICS -->
+
+            <div class="overview-stat-grid">
+
+                <article class="overview-stat-card">
+
+                    <span class="overview-stat-icon">
+                        ♥
+                    </span>
+
+                    <strong id="totalHealthRecords">
+                        0
+                    </strong>
+
+                    <span>
+                        Health Records
+                    </span>
+
+                </article>
+
+
+                <article class="overview-stat-card">
+
+                    <span class="overview-stat-icon">
+                        ✓
+                    </span>
+
+                    <strong id="completedTaskTotal">
+                        0
+                    </strong>
+
+                    <span>
+                        Tasks Completed
+                    </span>
+
+                </article>
+
+
+                <article class="overview-stat-card">
+
+                    <span class="overview-stat-icon">
+                        ◷
+                    </span>
+
+                    <strong id="eventTotal">
+                        0
+                    </strong>
+
+                    <span>
+                        Events
+                    </span>
+
+                </article>
+
+
+                <article class="overview-stat-card">
+
+                    <span class="overview-stat-icon">
+                        ↗
+                    </span>
+
+                    <strong id="activityMinutesTotal">
+                        0
+                    </strong>
+
+                    <span>
+                        Activity Minutes
+                    </span>
+
+                </article>
+
+            </div>
+
+
+
+            <!-- CARE ACTIVITY SUMMARY -->
+
+            <section class="overview-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="section-kicker">
+                            Care Activity
+                        </p>
+
+                        <h2>
+                            Recent Summary
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="overview-summary-list"
+                    id="overviewSummaryList"
+                >
+                </div>
+
+            </section>
+
+        </section>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         BOTTOM NAVIGATION
+         ===================================================== -->
+
+    <nav class="bottom-navigation">
+
+        <a
+            href="dashboard.html"
+            class="bottom-nav-item"
+        >
+
+            <span class="bottom-nav-icon">
+                ⌂
+            </span>
+
+            <span>
+                Home
+            </span>
+
+        </a>
+
+
+        <a
+            href="todo.html"
+            class="bottom-nav-item"
+        >
+
+            <span class="bottom-nav-icon">
+                ✓
+            </span>
+
+            <span>
+                ToDo
+            </span>
+
+        </a>
+
+
+        <button
+            type="button"
+            class="bottom-nav-item bottom-quick-add"
+            id="reportsQuickAdd"
+        >
+
+            <span class="bottom-add-icon">
+                +
+            </span>
+
+            <span>
+                Record
+            </span>
+
+        </button>
+
+
+        <a
+            href="events.html"
+            class="bottom-nav-item"
+        >
+
+            <span class="bottom-nav-icon">
+                ◷
+            </span>
+
+            <span>
+                Events
+            </span>
+
+        </a>
+
+
+        <a
+            href="reports.html"
+            class="bottom-nav-item active"
+        >
+
+            <span class="bottom-nav-icon">
+                ▥
+            </span>
+
+            <span>
+                Reports
+            </span>
+
+        </a>
+
+    </nav>
+
+</main>
+
+
+<script src="reports.js"></script>
+
+</body>
+
+</html>

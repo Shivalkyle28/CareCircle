@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CareCircle | Caregiver Registration</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="app-container registration-app">
+
+        <!-- =========================================
+             REGISTRATION PROGRESS
+             ========================================= -->
+
+        <div class="progress-container">
+
+            <div class="progress-step active" data-step="1">
+                <div class="progress-number">1</div>
+                <div class="progress-label">Details</div>
+            </div>
+
+            <div class="progress-step" data-step="2">
+                <div class="progress-number">2</div>
+                <div class="progress-label">Recipient</div>
+            </div>
+
+            <div class="progress-step" data-step="3">
+                <div class="progress-number">3</div>
+                <div class="progress-label">Health Info</div>
+            </div>
+
+            <div class="progress-step" data-step="4">
+                <div class="progress-number">4</div>
+                <div class="progress-label">Review</div>
+            </div>
+
+        </div>
+
+
+        <!-- =========================================
+             REGISTRATION FORM
+             ========================================= -->
+
+        <form id="caregiverRegistrationForm"
+              class="registration-content">
+
+
+            <!-- =====================================
+                 STEP 1 - CAREGIVER DETAILS
+                 ===================================== -->
+
+            <section class="registration-step"
+                     id="step1">
+
+                <h1 class="registration-heading">
+                    Your Details
+                </h1>
+
+
+                <div class="form-group">
+
+                    <label class="form-label"
+                           for="fullName">
+                        Full Name
+                    </label>
+
+                    <input
+                        class="form-control"
+                        type="text"
+                        id="fullName"
+                        name="fullName"
+                        autocomplete="name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label class="form-label"
+                           for="email">
+                        Email
+                    </label>
+
+                    <input
+                        class="form-control"
+                        type="email"
+                        id="email"
+                        name="email"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label class="form-label"
+                           for="phone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        class="form-control"
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        autocomplete="tel"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label class="form-label"
+                           for="address">
+                        Address
+                    </label>
+
+                    <input
+                        class="form-control"
+                        type="text"
+                        id="address"
+                        name="address"
+                        autocomplete="street-address"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label class="form-label"
+                           for="password">
+                        Password
+                    </label>
+
+                    <input
+                        class="form-control"
+                        type="password"
+                        id="password"
+                        name="password"
+                        autocomplete="new-password"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label class="form-label"
+                           for="confirmPassword">
+                        Confirm Password
+                    </label>
+
+                    <input
+                        class="form-control"
+                        type="password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        autocomplete="new-password"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Navigation -->
+
+                <div class="form-navigation">
+
+                    <button
+                        class="nav-arrow"
+                        type="button"
+                        id="backToHome"
+                        aria-label="Back to Create Account"
+                    >
+                        ←
+                    </button>
+
+
+                    <button
+                        class="nav-arrow"
+                        type="button"
+                        id="nextToRecipient"
+                        aria-label="Continue to Care Recipient Details"
+                    >
+                        →
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 STEP 2 - CARE RECIPIENT
+                 ===================================== -->
+
+            <section class="registration-step hidden"
+                     id="step2">
+
+                <h1 class="registration-heading">
+                    Care Recipient Details
+                </h1>
+
+
+                <div class="form-group">
+
+                    <label class="form-label"
+                           for="recipientName">
+                        Full Name
+                    </label>
+
+                    <input
+                        class="form-control"
+                        type="text"
+                        id="recipientName"
+                        name="recipientName"
+                        autocomplete="off"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label class="form-label"
+                               for="recipientDOB">
+                            Date Of Birth
+                        </label>
+
+                        <input
+                            class="form-control"
+                            type="date"
+                            id="recipientDOB"
+                            name="recipientDOB"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label class="form-label"
+                               for="recipientGender">
+                            Gender
+                        </label>
+
+                        <select
+                            class="form-control"
+                            id="recipientGender"
+                            name="recipientGender"
+                            required
+                        >
+                            <option value="">
+                                Select
+                            </option>
+
+                            <option value="Male">
+                                Male
+                            </option>
+
+                            <option value="Female">
+                                Female
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                            <option value="Prefer not to say">
+                                Prefer not to say
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label class="form-label"
+                           for="relationship">
+                        Relationship To You
+                    </label>
+
+                    <input
+                        class="form-control"
+                        type="text"
+                        id="relationship"
+                        name="relationship"
+                        placeholder="e.g. Mother, Father, Grandparent"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label class="form-label"
+                           for="recipientAddress">
+                        Home Address
+                    </label>
+
+                    <textarea
+                        class="form-control"
+                        id="recipientAddress"
+                        name="recipientAddress"
+                        rows="3"
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <!-- Navigation -->
+
+                <div class="form-navigation">
+
+                    <button
+                        class="nav-arrow"
+                        type="button"
+                        id="backToDetails"
+                        aria-label="Back to Your Details"
+                    >
+                        ←
+                    </button>
+
+
+                    <button
+                        class="nav-arrow"
+                        type="button"
+                        id="nextToHealth"
+                        aria-label="Continue to Health Information"
+                    >
+                        →
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 STEP 3 - HEALTH INFORMATION
+                 ===================================== -->
+
+            <section class="registration-step hidden"
+                     id="step3">
+
+                <h1 class="registration-heading">
+                    Health History
+                </h1>
+
+
+                <!-- Medical Conditions -->
+
+                <div class="form-group">
+
+                    <label class="form-label">
+                        Medical Conditions
+                    </label>
+
+                    <small class="field-help">
+                        Select All That Apply
+                    </small>
+
+                    <div class="checkbox-group">
+
+                        <label class="checkbox-option">
+                            <input
+                                type="checkbox"
+                                name="medicalConditions"
+                                value="Diabetes"
+                            >
+                            Diabetes
+                        </label>
+
+
+                        <label class="checkbox-option">
+                            <input
+                                type="checkbox"
+                                name="medicalConditions"
+                                value="Hypertension"
+                            >
+                            Hypertension
+                        </label>
+
+
+                        <label class="checkbox-option">
+                            <input
+                                type="checkbox"
+                                name="medicalConditions"
+                                value="Heart Disease"
+                            >
+                            Heart Disease
+                        </label>
+
+
+                        <label class="checkbox-option">
+                            <input
+                                type="checkbox"
+                                name="medicalConditions"
+                                value="Other"
+                            >
+                            Other
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Medications -->
+
+                <div class="form-group">
+
+                    <label class="form-label">
+                        Medications
+                    </label>
+
+                    <small class="field-help">
+                        Select All That Apply
+                    </small>
+
+
+                    <div class="checkbox-group">
+
+                        <label class="checkbox-option">
+                            <input
+                                type="checkbox"
+                                name="medications"
+                                value="Metformin"
+                            >
+                            Metformin
+                        </label>
+
+
+                        <label class="checkbox-option">
+                            <input
+                                type="checkbox"
+                                name="medications"
+                                value="Insulin"
+                            >
+                            Insulin
+                        </label>
+
+
+                        <label class="checkbox-option">
+                            <input
+                                type="checkbox"
+                                name="medications"
+                                value="Amlodipine"
+                            >
+                            Amlodipine
+                        </label>
+
+
+                        <label class="checkbox-option">
+                            <input
+                                type="checkbox"
+                                name="medications"
+                                value="Other"
+                            >
+                            Other
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Accessibility -->
+
+                <div class="form-group">
+
+                    <label class="form-label">
+                        Accessibility Issues
+                    </label>
+
+
+                    <div class="checkbox-group">
+
+                        <label class="checkbox-option">
+                            <input
+                                type="checkbox"
+                                name="accessibility"
+                                value="Hearing Impaired"
+                            >
+                            Hearing Impaired
+                        </label>
+
+
+                        <label class="checkbox-option">
+                            <input
+                                type="checkbox"
+                                name="accessibility"
+                                value="Deaf"
+                            >
+                            Deaf
+                        </label>
+
+
+                        <label class="checkbox-option">
+                            <input
+                                type="checkbox"
+                                name="accessibility"
+                                value="Low Mobility"
+                            >
+                            Low Mobility
+                        </label>
+
+
+                        <label class="checkbox-option">
+                            <input
+                                type="checkbox"
+                                name="accessibility"
+                                value="No Mobility"
+                            >
+                            No Mobility
+                        </label>
+
+
+                        <label class="checkbox-option">
+                            <input
+                                type="checkbox"
+                                name="accessibility"
+                                value="Other"
+                            >
+                            Other
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Medical History -->
+
+                <div class="form-group">
+
+                    <label class="form-label"
+                           for="medicalHistory">
+                        Medical History
+                    </label>
+
+                    <textarea
+                        class="form-control"
+                        id="medicalHistory"
+                        name="medicalHistory"
+                        rows="3"
+                        placeholder="Enter any relevant medical history"
+                    ></textarea>
+
+                </div>
+
+
+
+                <!-- Health Provider -->
+
+                <div class="form-group">
+
+                    <label class="form-label"
+                           for="healthProvider">
+                        Primary Health Care Provider
+                    </label>
+
+                    <input
+                        class="form-control"
+                        type="text"
+                        id="healthProvider"
+                        name="healthProvider"
+                    >
+
+                </div>
+
+
+                <!-- Navigation -->
+
+                <div class="form-navigation">
+
+                    <button
+                        class="nav-arrow"
+                        type="button"
+                        id="backToRecipient"
+                        aria-label="Back to Care Recipient Details"
+                    >
+                        ←
+                    </button>
+
+
+                    <button
+                        class="nav-arrow"
+                        type="button"
+                        id="nextToReview"
+                        aria-label="Continue to Review"
+                    >
+                        →
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 STEP 4 - REVIEW
+                 ===================================== -->
+
+            <section class="registration-step hidden"
+                     id="step4">
+
+                <h1 class="registration-heading">
+                    Review
+                </h1>
+
+
+                <p class="review-message">
+                    Please Double Check All Information
+                </p>
+
+
+                <!-- Caregiver -->
+
+                <div class="review-section">
+
+                    <div class="review-heading">
+
+                        <h2>
+                            Caregiver's Information
+                        </h2>
+
+                        <button
+                            type="button"
+                            class="edit-link"
+                            data-edit-step="1"
+                        >
+                            Edit
+                        </button>
+
+                    </div>
+
+                    <div id="caregiverReview"></div>
+
+                </div>
+
+
+
+                <!-- Recipient -->
+
+                <div class="review-section">
+
+                    <div class="review-heading">
+
+                        <h2>
+                            Care Recipient's Information
+                        </h2>
+
+                        <button
+                            type="button"
+                            class="edit-link"
+                            data-edit-step="2"
+                        >
+                            Edit
+                        </button>
+
+                    </div>
+
+                    <div id="recipientReview"></div>
+
+                </div>
+
+
+
+                <!-- Health -->
+
+                <div class="review-section">
+
+                    <div class="review-heading">
+
+                        <h2>
+                            Care Recipient's Health History
+                        </h2>
+
+                        <button
+                            type="button"
+                            class="edit-link"
+                            data-edit-step="3"
+                        >
+                            Edit
+                        </button>
+
+                    </div>
+
+                    <div id="healthReview"></div>
+
+                </div>
+
+
+
+                <!-- Final navigation -->
+
+                <div class="form-navigation">
+
+                    <button
+                        class="nav-arrow"
+                        type="button"
+                        id="backToHealth"
+                        aria-label="Back to Health Information"
+                    >
+                        ←
+                    </button>
+
+
+                    <button
+                        class="primary-button finish-registration"
+                        type="submit"
+                    >
+                        Create Account
+                    </button>
+
+                </div>
+
+            </section>
+
+
+        </form>
+
+    </main>
+
+
+    <script src="caregiver-register.js"></script>
+
+</body>
+
+</html>

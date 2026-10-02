@@ -3,196 +3,219 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CareCircle | Dashboard</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CareCircle | Caregiver Dashboard</title>
 
     <link rel="stylesheet" href="style.css">
-
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 
 <body>
 
-    <!-- ======================================
-         HEADER
-    ======================================= -->
+<main class="dashboard-app">
 
-    <header class="top-header">
+    <!-- =====================================================
+         TOP HEADER
+         ===================================================== -->
 
-        <div class="brand">
+    <header class="dashboard-header">
 
-            <div class="logo-icon">
-                <i class="fa-solid fa-heart-pulse"></i>
+        <button
+            class="menu-button"
+            id="menuButton"
+            type="button"
+            aria-label="Open navigation"
+        >
+            ☰
+        </button>
+
+        <button
+    type="button"
+    class="side-menu-item side-menu-signout"
+    id="caregiverSignOutButton"
+>
+    <span>↪</span>
+
+    Sign Out
+</button>
+
+        <div class="dashboard-brand">
+
+            <div class="dashboard-logo-icon">
+                ♡
             </div>
 
-            <div>
-                <h1>CareCircle</h1>
-                <p>Caring together. Staying connected.</p>
-            </div>
+            <span>
+                CareCircle
+            </span>
 
         </div>
 
 
-        <div class="header-actions">
-
-            <button class="notification-btn">
-                <i class="fa-regular fa-bell"></i>
-                <span class="notification-dot"></span>
-            </button>
-
-
-            <div class="caregiver-profile">
-
-                <div
-                    class="avatar"
-                    id="caregiverInitials">
-                    CC
-                </div>
-
-                <div class="caregiver-text">
-
-                    <strong id="headerCaregiverName">
-                        Caregiver
-                    </strong>
-
-                    <span id="headerRelationship">
-                        CareCircle Member
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
+        <button
+            class="profile-button"
+            id="profileButton"
+            type="button"
+            aria-label="View caregiver profile"
+        >
+            👤
+        </button>
 
     </header>
 
 
 
-    <!-- ======================================
-         DASHBOARD
-    ======================================= -->
+    <!-- =====================================================
+         SIDE NAVIGATION
+         ===================================================== -->
 
-    <main class="dashboard-container">
+    <aside
+        class="side-menu"
+        id="sideMenu"
+        aria-hidden="true"
+    >
 
+        <div class="side-menu-header">
 
-        <!-- WELCOME -->
-
-        <section class="welcome-section">
-
-            <div>
-
-                <p class="small-heading">
-                    Caregiver Dashboard
-                </p>
-
-                <h2 id="dashboardGreeting">
-                    Welcome to CareCircle
-                </h2>
-
-                <p
-                    class="welcome-message"
-                    id="dashboardMessage">
-                    Here's today's care overview.
-                </p>
-
-            </div>
-
+            <strong>
+                CareCircle
+            </strong>
 
             <button
-                class="quick-add-btn"
-                id="quickAddBtn">
-
-                <i class="fa-solid fa-plus"></i>
-                Quick Add
-
+                type="button"
+                id="closeMenuButton"
+                class="close-menu"
+                aria-label="Close navigation"
+            >
+                ×
             </button>
 
-        </section>
+        </div>
+
+
+        <nav class="side-navigation">
+
+            <a href="dashboard.html"
+               class="side-nav-link active">
+                Dashboard
+            </a>
+
+            <a href="todo.html"
+               class="side-nav-link">
+                ToDo
+            </a>
+
+            <a href="events.html"
+               class="side-nav-link">
+                Events
+            </a>
+
+            <a href="map.html"
+               class="side-nav-link">
+                MyMap
+            </a>
+
+            <a href="reports.html"
+               class="side-nav-link">
+                Reports
+            </a>
+
+            <button
+                class="side-nav-link side-nav-button"
+                id="addUserButton"
+                type="button"
+            >
+                Add User
+            </button>
+
+        </nav>
+
+    </aside>
+
+
+    <div
+        class="menu-overlay"
+        id="menuOverlay"
+    ></div>
 
 
 
-        <!-- ======================================
-             PERSON IN CARE
-        ======================================= -->
+    <!-- =====================================================
+         DASHBOARD CONTENT
+         ===================================================== -->
 
-        <section class="patient-card">
-
-            <div class="patient-information">
-
-                <div
-                    class="patient-avatar"
-                    id="patientInitial">
-                    P
-                </div>
+    <div class="dashboard-content">
 
 
-                <div>
+        <!-- =================================================
+             CARE RECIPIENT
+             ================================================= -->
 
-                    <p class="label">
-                        Currently caring for
-                    </p>
+        <section class="recipient-header">
 
-                    <h3 id="dashboardPatientName">
-                        Person in Care
-                    </h3>
-
-
-                    <div class="patient-details">
-
-                        <span>
-                            <i class="fa-solid fa-cake-candles"></i>
-
-                            <span id="patientAge">
-                                Age not available
-                            </span>
-                        </span>
+            <div class="recipient-avatar">
+                👤
+            </div>
 
 
-                        <span>
-                            <i class="fa-solid fa-location-dot"></i>
+            <div class="recipient-header-info">
 
-                            <span id="patientAddress">
-                                Address not available
-                            </span>
-                        </span>
+                <p class="dashboard-eyebrow">
+                    Caregiver's Home Dashboard
+                </p>
 
-                    </div>
+                <h1 id="recipientFirstName">
+                    Care Recipient
+                </h1>
 
-                </div>
+                <p class="recipient-status">
+                    <span class="status-dot"></span>
+                    Care profile active
+                </p>
 
             </div>
 
 
             <button
-                class="view-profile-btn"
-                id="viewPatientProfile">
-
+                class="view-profile-button"
+                id="viewRecipientProfile"
+                type="button"
+            >
                 View Profile
-
             </button>
 
         </section>
 
 
 
-        <!-- ======================================
-             SUMMARY CARDS
-        ======================================= -->
+        <!-- =================================================
+             HEALTH SUMMARY
+             ================================================= -->
 
-        <section class="section-block">
+        <section class="dashboard-section">
 
             <div class="section-heading">
 
                 <div>
-                    <h3>Today's Care Overview</h3>
-                    <p>
-                        A quick summary of today's care information.
+                    <p class="section-kicker">
+                        Today
                     </p>
+
+                    <h2>
+                        Health Overview
+                    </h2>
                 </div>
+
+                <button
+                    type="button"
+                    class="text-button"
+                    id="recordVitalsButton"
+                >
+                    + Record
+                </button>
 
             </div>
 
@@ -200,159 +223,206 @@
             <div class="health-grid">
 
 
-                <!-- MEDICATIONS -->
+                <!-- BLOOD PRESSURE -->
 
                 <article class="health-card">
 
-                    <div class="health-card-header">
+                    <div class="health-card-top">
 
-                        <div class="icon-box">
-                            <i class="fa-solid fa-pills"></i>
-                        </div>
+                        <span class="health-icon">
+                            ♥
+                        </span>
 
                         <span
-                            class="status-badge success"
-                            id="medicationStatusBadge">
-                            Ready
+                            class="health-badge neutral"
+                            id="bpStatus"
+                        >
+                            No data
                         </span>
 
                     </div>
 
-                    <p class="card-label">
-                        Medications
-                    </p>
 
-                    <h4 id="medicationCount">
-                        0
-                    </h4>
-
-                    <p class="measurement">
-                        medications scheduled
+                    <p class="health-label">
+                        Blood Pressure
                     </p>
 
                     <p
-                        class="card-footer"
-                        id="medicationSummary">
-                        No medications added yet.
+                        class="health-value"
+                        id="bloodPressureValue"
+                    >
+                        --
+                    </p>
+
+                    <p class="health-unit">
+                        mmHg
                     </p>
 
                 </article>
 
 
 
-                <!-- APPOINTMENTS -->
+                <!-- BLOOD SUGAR -->
 
                 <article class="health-card">
 
-                    <div class="health-card-header">
+                    <div class="health-card-top">
 
-                        <div class="icon-box">
-                            <i class="fa-regular fa-calendar"></i>
-                        </div>
-
-                        <span class="status-badge success">
-                            Scheduled
+                        <span class="health-icon">
+                            ◇
                         </span>
-
-                    </div>
-
-                    <p class="card-label">
-                        Appointments
-                    </p>
-
-                    <h4 id="appointmentCount">
-                        0
-                    </h4>
-
-                    <p class="measurement">
-                        upcoming appointments
-                    </p>
-
-                    <p
-                        class="card-footer"
-                        id="appointmentSummary">
-                        No appointments added yet.
-                    </p>
-
-                </article>
-
-
-
-                <!-- CARE TASKS -->
-
-                <article class="health-card">
-
-                    <div class="health-card-header">
-
-                        <div class="icon-box">
-                            <i class="fa-solid fa-list-check"></i>
-                        </div>
 
                         <span
-                            class="status-badge warning"
-                            id="taskStatusBadge">
-                            Pending
+                            class="health-badge neutral"
+                            id="glucoseStatus"
+                        >
+                            No data
                         </span>
 
                     </div>
 
-                    <p class="card-label">
-                        Care Tasks
-                    </p>
 
-                    <h4 id="taskCount">
-                        0
-                    </h4>
-
-                    <p class="measurement">
-                        care responsibilities
+                    <p class="health-label">
+                        Blood Sugar
                     </p>
 
                     <p
-                        class="card-footer"
-                        id="taskSummary">
-                        No care tasks added yet.
+                        class="health-value"
+                        id="bloodSugarValue"
+                    >
+                        --
+                    </p>
+
+                    <p class="health-unit">
+                        mg/dL
                     </p>
 
                 </article>
 
 
 
-                <!-- HEALTH MONITORING -->
+                <!-- MEALS -->
 
                 <article class="health-card">
 
-                    <div class="health-card-header">
+                    <div class="health-card-top">
 
-                        <div class="icon-box">
-                            <i class="fa-solid fa-heart-pulse"></i>
-                        </div>
-
-                        <span class="status-badge success">
-                            Active
+                        <span class="health-icon">
+                            ◉
                         </span>
 
                     </div>
 
-                    <p class="card-label">
-                        Health Monitoring
-                    </p>
-
-                    <h4 id="healthMetricCount">
-                        0
-                    </h4>
-
-                    <p class="measurement">
-                        health areas tracked
+                    <p class="health-label">
+                        Meals
                     </p>
 
                     <p
-                        class="card-footer"
-                        id="healthMetricSummary">
-                        No monitoring selected.
+                        class="health-value"
+                        id="mealValue"
+                    >
+                        0
+                    </p>
+
+                    <p class="health-unit">
+                        recorded today
                     </p>
 
                 </article>
+
+
+
+                <!-- WATER -->
+
+                <article class="health-card">
+
+                    <div class="health-card-top">
+
+                        <span class="health-icon">
+                            ◒
+                        </span>
+
+                    </div>
+
+                    <p class="health-label">
+                        Water
+                    </p>
+
+                    <p
+                        class="health-value"
+                        id="waterValue"
+                    >
+                        0
+                    </p>
+
+                    <p class="health-unit">
+                        glasses
+                    </p>
+
+                </article>
+
+
+
+                <!-- ACTIVITY -->
+
+                <article class="health-card">
+
+                    <div class="health-card-top">
+
+                        <span class="health-icon">
+                            ◇
+                        </span>
+
+                    </div>
+
+                    <p class="health-label">
+                        Activity
+                    </p>
+
+                    <p
+                        class="health-value"
+                        id="activityValue"
+                    >
+                        0
+                    </p>
+
+                    <p class="health-unit">
+                        mins
+                    </p>
+
+                </article>
+
+
+
+                <!-- SLEEP -->
+
+                <article class="health-card">
+
+                    <div class="health-card-top">
+
+                        <span class="health-icon">
+                            ☾
+                        </span>
+
+                    </div>
+
+                    <p class="health-label">
+                        Sleep
+                    </p>
+
+                    <p
+                        class="health-value"
+                        id="sleepValue"
+                    >
+                        --
+                    </p>
+
+                    <p class="health-unit">
+                        hours
+                    </p>
+
+                </article>
+
 
             </div>
 
@@ -360,105 +430,100 @@
 
 
 
-        <!-- ======================================
-             HEALTH MONITORING CARDS
-        ======================================= -->
+        <!-- =================================================
+             ATTENTION
+             ================================================= -->
 
-        <section class="section-block">
+        <section class="dashboard-section">
 
             <div class="section-heading">
 
                 <div>
-                    <h3>Health Monitoring</h3>
-
-                    <p>
-                        Health information selected during care setup.
+                    <p class="section-kicker">
+                        Priority
                     </p>
+
+                    <h2>
+                        Requires Attention
+                    </h2>
                 </div>
 
-                <a href="reports.html">
-                    View Reports
+                <span
+                    class="attention-count"
+                    id="attentionCount"
+                >
+                    0
+                </span>
+
+            </div>
+
+
+            <div
+                class="attention-list"
+                id="attentionList"
+            >
+
+                <div class="empty-dashboard-state">
+
+                    <span class="empty-icon">
+                        ✓
+                    </span>
+
+                    <p>
+                        Nothing requires attention right now.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             UPCOMING EVENTS
+             ================================================= -->
+
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="section-kicker">
+                        Schedule
+                    </p>
+
+                    <h2>
+                        Upcoming Events
+                    </h2>
+                </div>
+
+
+                <a
+                    href="events.html"
+                    class="text-link"
+                >
+                    View All →
                 </a>
 
             </div>
 
 
             <div
-                class="health-grid"
-                id="healthMonitoringCards">
+                class="event-list"
+                id="upcomingEvents"
+            >
 
-                <!-- Created using JavaScript -->
+                <div class="empty-dashboard-state">
 
-            </div>
+                    <span class="empty-icon">
+                        ◷
+                    </span>
 
-        </section>
-
-
-
-        <!-- ======================================
-             UPCOMING + TASKS
-        ======================================= -->
-
-        <section class="dashboard-columns">
-
-
-            <!-- UPCOMING APPOINTMENTS -->
-
-            <div class="dashboard-panel">
-
-                <div class="section-heading">
-
-                    <div>
-                        <h3>Upcoming Events</h3>
-
-                        <p>
-                            Appointments and important events.
-                        </p>
-                    </div>
-
-
-                    <a href="events.html">
-                        View all
-                    </a>
-
-                </div>
-
-
-                <div id="dashboardAppointments">
-
-                    <!-- Generated by JavaScript -->
-
-                </div>
-
-            </div>
-
-
-
-            <!-- CARE TASKS -->
-
-            <div class="dashboard-panel">
-
-                <div class="section-heading">
-
-                    <div>
-                        <h3>Care Tasks</h3>
-
-                        <p>
-                            Upcoming caregiving responsibilities.
-                        </p>
-                    </div>
-
-
-                    <a href="todo.html">
-                        View all
-                    </a>
-
-                </div>
-
-
-                <div id="dashboardTasks">
-
-                    <!-- Generated by JavaScript -->
+                    <p>
+                        No upcoming events.
+                    </p>
 
                 </div>
 
@@ -468,113 +533,779 @@
 
 
 
-        <!-- ======================================
-             MEDICATIONS
-        ======================================= -->
+        <!-- =================================================
+             RECENT ACTIVITIES
+             ================================================= -->
 
-        <section class="section-block dashboard-medication-section">
+        <section class="dashboard-section">
 
             <div class="section-heading">
 
                 <div>
-                    <h3>Today's Medications</h3>
-
-                    <p>
-                        Medication schedule for today.
+                    <p class="section-kicker">
+                        Updates
                     </p>
+
+                    <h2>
+                        Recent Activities
+                    </h2>
                 </div>
 
 
-                <a href="medications.html">
-                    View all
-                </a>
+                <button
+                    class="text-button"
+                    id="viewAllActivities"
+                    type="button"
+                >
+                    View All →
+                </button>
 
             </div>
 
 
             <div
-                class="dashboard-medication-list"
-                id="dashboardMedicationList">
+                class="activity-list"
+                id="recentActivities"
+            >
 
-                <!-- Generated through JavaScript -->
+                <div class="empty-dashboard-state">
+
+                    <span class="empty-icon">
+                        ≡
+                    </span>
+
+                    <p>
+                        No recent activities yet.
+                    </p>
+
+                </div>
 
             </div>
 
         </section>
 
 
-
-    </main>
-
+    </div>
 
 
-    <!-- ======================================
-         NAVIGATION
-    ======================================= -->
 
-    <nav class="bottom-nav">
+    <!-- =====================================================
+         QUICK ADD BUTTON
+         ===================================================== -->
+
+    <button
+        class="quick-add-button"
+        id="quickAddButton"
+        type="button"
+        aria-label="Quick Add"
+    >
+        +
+    </button>
+
+
+
+    <!-- =====================================================
+         QUICK ADD MODAL
+         ===================================================== -->
+
+    <div
+        class="modal-overlay hidden"
+        id="quickAddModal"
+    >
+
+        <div
+            class="quick-add-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="quickAddTitle"
+        >
+
+            <div class="modal-header">
+
+                <div>
+
+                    <p class="section-kicker">
+                        CareCircle
+                    </p>
+
+                    <h2 id="quickAddTitle">
+                        Quick Add
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="modal-close"
+                    id="closeQuickAdd"
+                    aria-label="Close Quick Add"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <p class="modal-description">
+                What would you like to add?
+            </p>
+
+
+            <div class="quick-add-grid">
+
+
+                <button
+                    type="button"
+                    class="quick-action-card"
+                    data-action="medication"
+                >
+
+                    <span class="quick-action-icon">
+                        +
+                    </span>
+
+                    <span>
+                        Medication
+                    </span>
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="quick-action-card"
+                    data-action="task"
+                >
+
+                    <span class="quick-action-icon">
+                        ✓
+                    </span>
+
+                    <span>
+                        Task
+                    </span>
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="quick-action-card"
+                    data-action="event"
+                >
+
+                    <span class="quick-action-icon">
+                        ◷
+                    </span>
+
+                    <span>
+                        Event
+                    </span>
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="quick-action-card"
+                    data-action="vitals"
+                >
+
+                    <span class="quick-action-icon">
+                        ♥
+                    </span>
+
+                    <span>
+                        Vitals
+                    </span>
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="quick-action-card"
+                    data-action="meal"
+                >
+
+                    <span class="quick-action-icon">
+                        ◉
+                    </span>
+
+                    <span>
+                        Meal
+                    </span>
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="quick-action-card"
+                    data-action="note"
+                >
+
+                    <span class="quick-action-icon">
+                        ✎
+                    </span>
+
+                    <span>
+                        Quick Note
+                    </span>
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         BOTTOM NAVIGATION
+         ===================================================== -->
+
+    <nav class="bottom-navigation">
 
         <a
             href="dashboard.html"
-            class="active">
-
-            <i class="fa-solid fa-house"></i>
+            class="bottom-nav-item active"
+        >
+            <span class="bottom-nav-icon">
+                ⌂
+            </span>
 
             <span>
                 Home
             </span>
-
         </a>
 
 
-        <a href="todo.html">
-
-            <i class="fa-solid fa-list-check"></i>
-
-            <span>
-                To-Do
+        <a
+            href="todo.html"
+            class="bottom-nav-item"
+        >
+            <span class="bottom-nav-icon">
+                ✓
             </span>
 
+            <span>
+                ToDo
+            </span>
         </a>
 
 
-        <a href="events.html">
+        <button
+            type="button"
+            class="bottom-nav-item bottom-quick-add"
+            id="bottomQuickAdd"
+        >
+            <span class="bottom-add-icon">
+                +
+            </span>
 
-            <i class="fa-regular fa-calendar"></i>
+            <span>
+                Add
+            </span>
+        </button>
+
+
+        <a
+            href="events.html"
+            class="bottom-nav-item"
+        >
+            <span class="bottom-nav-icon">
+                ◷
+            </span>
 
             <span>
                 Events
             </span>
-
         </a>
 
 
-        <a href="medications.html">
-
-            <i class="fa-solid fa-pills"></i>
-
-            <span>
-                Medications
+        <a
+            href="reports.html"
+            class="bottom-nav-item"
+        >
+            <span class="bottom-nav-icon">
+                ▥
             </span>
-
-        </a>
-
-
-        <a href="reports.html">
-
-            <i class="fa-solid fa-chart-line"></i>
 
             <span>
                 Reports
             </span>
-
         </a>
+<!-- =====================================================
+     HEALTH RECORD MODAL
+     ===================================================== -->
 
+<div
+    class="modal-overlay hidden"
+    id="healthModal"
+>
+
+    <div
+        class="task-modal health-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="healthModalTitle"
+    >
+
+        <div class="modal-header">
+
+            <div>
+
+                <p class="section-kicker">
+                    Health Monitoring
+                </p>
+
+                <h2 id="healthModalTitle">
+                    Record Health Data
+                </h2>
+
+            </div>
+
+            <button
+                type="button"
+                class="modal-close"
+                id="closeHealthModal"
+                aria-label="Close health form"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <!-- HEALTH TYPE SELECTOR -->
+
+        <div class="health-entry-tabs">
+
+            <button
+                type="button"
+                class="health-entry-tab active"
+                data-health-type="bloodPressure"
+            >
+                Blood Pressure
+            </button>
+
+            <button
+                type="button"
+                class="health-entry-tab"
+                data-health-type="bloodSugar"
+            >
+                Blood Sugar
+            </button>
+
+            <button
+                type="button"
+                class="health-entry-tab"
+                data-health-type="water"
+            >
+                Water
+            </button>
+
+            <button
+                type="button"
+                class="health-entry-tab"
+                data-health-type="activity"
+            >
+                Activity
+            </button>
+
+            <button
+                type="button"
+                class="health-entry-tab"
+                data-health-type="sleep"
+            >
+                Sleep
+            </button>
+
+        </div>
+
+
+        <form id="healthForm">
+
+            <input
+                type="hidden"
+                id="healthType"
+                value="bloodPressure"
+            >
+
+
+            <!-- =============================================
+                 BLOOD PRESSURE
+                 ============================================= -->
+
+            <div
+                class="health-form-section"
+                id="bloodPressureFields"
+            >
+
+                <div class="health-reading-row">
+
+                    <div class="form-group">
+
+                        <label
+                            class="form-label"
+                            for="systolicValue"
+                        >
+                            Systolic
+                        </label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            id="systolicValue"
+                            min="1"
+                            max="300"
+                            placeholder="e.g. 120"
+                        >
+
+                    </div>
+
+
+                    <div class="health-reading-divider">
+                        /
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label
+                            class="form-label"
+                            for="diastolicValue"
+                        >
+                            Diastolic
+                        </label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            id="diastolicValue"
+                            min="1"
+                            max="200"
+                            placeholder="e.g. 80"
+                        >
+
+                    </div>
+
+                </div>
+
+                <p class="health-unit-note">
+                    Measurement: mmHg
+                </p>
+
+            </div>
+
+
+            <!-- =============================================
+                 BLOOD SUGAR
+                 ============================================= -->
+
+            <div
+                class="health-form-section hidden"
+                id="bloodSugarFields"
+            >
+
+                <div class="form-group">
+
+                    <label
+                        class="form-label"
+                        for="bloodSugarReading"
+                    >
+                        Blood Sugar Reading
+                    </label>
+
+                    <input
+                        type="number"
+                        class="form-control"
+                        id="bloodSugarReading"
+                        min="1"
+                        max="1000"
+                        step="0.1"
+                        placeholder="e.g. 110"
+                    >
+
+                    <small class="field-help">
+                        Measurement: mg/dL
+                    </small>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label
+                        class="form-label"
+                        for="glucoseContext"
+                    >
+                        Reading Context
+                    </label>
+
+                    <select
+                        class="form-control"
+                        id="glucoseContext"
+                    >
+
+                        <option value="Not specified">
+                            Not Specified
+                        </option>
+
+                        <option value="Fasting">
+                            Fasting
+                        </option>
+
+                        <option value="Before meal">
+                            Before Meal
+                        </option>
+
+                        <option value="After meal">
+                            After Meal
+                        </option>
+
+                        <option value="Bedtime">
+                            Bedtime
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- =============================================
+                 WATER
+                 ============================================= -->
+
+            <div
+                class="health-form-section hidden"
+                id="waterFields"
+            >
+
+                <div class="form-group">
+
+                    <label
+                        class="form-label"
+                        for="waterGlasses"
+                    >
+                        Glasses of Water
+                    </label>
+
+                    <input
+                        type="number"
+                        class="form-control"
+                        id="waterGlasses"
+                        min="1"
+                        max="50"
+                        value="1"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- =============================================
+                 ACTIVITY
+                 ============================================= -->
+
+            <div
+                class="health-form-section hidden"
+                id="activityFields"
+            >
+
+                <div class="form-group">
+
+                    <label
+                        class="form-label"
+                        for="activityMinutes"
+                    >
+                        Activity Minutes
+                    </label>
+
+                    <input
+                        type="number"
+                        class="form-control"
+                        id="activityMinutes"
+                        min="1"
+                        max="1440"
+                        placeholder="e.g. 30"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label
+                        class="form-label"
+                        for="activityDescription"
+                    >
+                        Activity
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="activityDescription"
+                        placeholder="e.g. Walking"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- =============================================
+                 SLEEP
+                 ============================================= -->
+
+            <div
+                class="health-form-section hidden"
+                id="sleepFields"
+            >
+
+                <div class="form-group">
+
+                    <label
+                        class="form-label"
+                        for="sleepHours"
+                    >
+                        Hours of Sleep
+                    </label>
+
+                    <input
+                        type="number"
+                        class="form-control"
+                        id="sleepHours"
+                        min="0"
+                        max="24"
+                        step="0.5"
+                        placeholder="e.g. 7.5"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- =============================================
+                 DATE AND TIME
+                 ============================================= -->
+
+            <div class="health-date-time">
+
+                <div class="form-group">
+
+                    <label
+                        class="form-label"
+                        for="healthDate"
+                    >
+                        Date
+                    </label>
+
+                    <input
+                        type="date"
+                        class="form-control"
+                        id="healthDate"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label
+                        class="form-label"
+                        for="healthTime"
+                    >
+                        Time
+                    </label>
+
+                    <input
+                        type="time"
+                        class="form-control"
+                        id="healthTime"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- NOTES -->
+
+            <div class="form-group">
+
+                <label
+                    class="form-label"
+                    for="healthNotes"
+                >
+                    Notes
+                </label>
+
+                <textarea
+                    class="form-control"
+                    id="healthNotes"
+                    rows="2"
+                    placeholder="Optional note..."
+                ></textarea>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="task-form-actions">
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    id="cancelHealthButton"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                >
+                    Save Reading
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
     </nav>
 
 
+</main>
 
-    <script src="script.js"></script>
+
+<script src="session.js"></script>
+<script src="dashboard.js"></script>
 
 </body>
 

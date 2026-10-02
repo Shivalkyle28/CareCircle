@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>CareCircle | MyMap</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+
+<body>
+
+<main class="dashboard-app map-app">
+
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="dashboard-header">
+
+        <a
+            href="dashboard.html"
+            class="todo-back-button"
+            aria-label="Back to dashboard"
+        >
+            ←
+        </a>
+
+
+        <div class="dashboard-brand">
+
+            <div class="dashboard-logo-icon">
+                ♡
+            </div>
+
+            <span>
+                CareCircle
+            </span>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="profile-button"
+            id="mapProfileButton"
+            aria-label="View profile"
+        >
+            👤
+        </button>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CONTENT
+         ===================================================== -->
+
+    <div class="dashboard-content">
+
+
+        <!-- =================================================
+             PAGE HEADER
+             ================================================= -->
+
+        <section class="map-page-header">
+
+            <div>
+
+                <p class="section-kicker">
+                    Care Network
+                </p>
+
+                <h1>
+                    MyMap
+                </h1>
+
+                <p class="map-subtitle">
+                    View members of your care circle
+                    and their latest shared status.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="map-refresh-button"
+                id="refreshMapButton"
+            >
+                ↻
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             MAP AREA
+             ================================================= -->
+
+        <section class="care-map">
+
+            <div class="map-grid-background"></div>
+
+
+            <!-- ROAD LINES -->
+
+            <div class="map-road map-road-one"></div>
+
+            <div class="map-road map-road-two"></div>
+
+            <div class="map-road map-road-three"></div>
+
+
+            <!-- CARE RECIPIENT -->
+
+            <button
+                type="button"
+                class="
+                    map-person-marker
+                    recipient-marker
+                "
+                id="recipientMapMarker"
+                data-person="recipient"
+            >
+
+                <span class="map-marker-avatar">
+                    👤
+                </span>
+
+                <span
+                    class="map-marker-name"
+                    id="mapRecipientName"
+                >
+                    Care Recipient
+                </span>
+
+            </button>
+
+
+            <!-- CAREGIVER -->
+
+            <button
+                type="button"
+                class="
+                    map-person-marker
+                    caregiver-marker
+                "
+                id="caregiverMapMarker"
+                data-person="caregiver"
+            >
+
+                <span class="map-marker-avatar">
+                    👤
+                </span>
+
+                <span
+                    class="map-marker-name"
+                    id="mapCaregiverName"
+                >
+                    Caregiver
+                </span>
+
+            </button>
+
+
+            <!-- HOME -->
+
+            <div class="map-home-marker">
+
+                <span>
+                    ⌂
+                </span>
+
+                <small>
+                    Home
+                </small>
+
+            </div>
+
+
+            <!-- CONNECTION -->
+
+            <div class="map-connection-line"></div>
+
+
+            <!-- MAP LABEL -->
+
+            <div class="map-demo-label">
+                CareCircle Map
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SELECTED PERSON
+             ================================================= -->
+
+        <section class="map-person-panel">
+
+            <div class="map-person-heading">
+
+                <div class="map-person-avatar">
+                    👤
+                </div>
+
+
+                <div>
+
+                    <p class="section-kicker">
+                        Selected Member
+                    </p>
+
+                    <h2 id="selectedPersonName">
+                        Care Recipient
+                    </h2>
+
+                    <span
+                        class="map-status-badge online"
+                        id="selectedPersonStatus"
+                    >
+                        ● Active
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- DETAILS -->
+
+            <div class="map-detail-grid">
+
+
+                <div class="map-detail-card">
+
+                    <span class="map-detail-icon">
+                        ⌖
+                    </span>
+
+                    <div>
+
+                        <small>
+                            Distance
+                        </small>
+
+                        <strong id="selectedDistance">
+                            --
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="map-detail-card">
+
+                    <span class="map-detail-icon">
+                        ◷
+                    </span>
+
+                    <div>
+
+                        <small>
+                            ETA
+                        </small>
+
+                        <strong id="selectedETA">
+                            --
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="map-detail-card">
+
+                    <span class="map-detail-icon">
+                        ↻
+                    </span>
+
+                    <div>
+
+                        <small>
+                            Last Update
+                        </small>
+
+                        <strong id="selectedLastUpdate">
+                            Just now
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="map-detail-card">
+
+                    <span class="map-detail-icon">
+                        ✓
+                    </span>
+
+                    <div>
+
+                        <small>
+                            Ongoing Task
+                        </small>
+
+                        <strong id="selectedTask">
+                            None
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CARE CIRCLE MEMBERS
+             ================================================= -->
+
+        <section class="map-members-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="section-kicker">
+                        Family & Caregivers
+                    </p>
+
+                    <h2>
+                        Care Circle
+                    </h2>
+
+                </div>
+
+
+                <span
+                    class="member-count"
+                    id="mapMemberCount"
+                >
+                    2
+                </span>
+
+            </div>
+
+
+            <div
+                class="map-member-list"
+                id="mapMemberList"
+            >
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             LOCATION INFORMATION
+             ================================================= -->
+
+        <section class="map-location-note">
+
+            <div class="map-location-note-icon">
+                ⓘ
+            </div>
+
+
+            <div>
+
+                <strong>
+                    Location Sharing
+                </strong>
+
+                <p>
+                    CareCircle only displays location
+                    information that a member has chosen
+                    to share with their care circle.
+                </p>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         BOTTOM NAVIGATION
+         ===================================================== -->
+
+    <nav class="bottom-navigation">
+
+        <a
+            href="dashboard.html"
+            class="bottom-nav-item"
+        >
+
+            <span class="bottom-nav-icon">
+                ⌂
+            </span>
+
+            <span>
+                Home
+            </span>
+
+        </a>
+
+
+        <a
+            href="todo.html"
+            class="bottom-nav-item"
+        >
+
+            <span class="bottom-nav-icon">
+                ✓
+            </span>
+
+            <span>
+                ToDo
+            </span>
+
+        </a>
+
+
+        <a
+            href="events.html"
+            class="bottom-nav-item"
+        >
+
+            <span class="bottom-nav-icon">
+                ◷
+            </span>
+
+            <span>
+                Events
+            </span>
+
+        </a>
+
+
+        <a
+            href="map.html"
+            class="bottom-nav-item active"
+        >
+
+            <span class="bottom-nav-icon">
+                ⌖
+            </span>
+
+            <span>
+                MyMap
+            </span>
+
+        </a>
+
+
+        <a
+            href="reports.html"
+            class="bottom-nav-item"
+        >
+
+            <span class="bottom-nav-icon">
+                ▥
+            </span>
+
+            <span>
+                Reports
+            </span>
+
+        </a>
+
+    </nav>
+
+</main>
+
+
+<script src="map.js"></script>
+
+</body>
+
+</html>

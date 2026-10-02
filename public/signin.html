@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>CareCircle | Sign In</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+
+<body>
+
+    <main class="app-container signin-app">
+
+
+        <!-- =================================================
+             HEADER
+             ================================================= -->
+
+        <header class="app-header">
+
+            <button
+                type="button"
+                class="signin-back-button"
+                id="signinBackButton"
+                aria-label="Go back"
+            >
+                ←
+            </button>
+
+
+            <div class="app-logo">
+
+                <div class="logo-icon">
+                    ♡
+                </div>
+
+                <span>
+                    CareCircle
+                </span>
+
+            </div>
+
+
+            <div class="signin-header-spacer"></div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             SIGN IN CONTENT
+             ================================================= -->
+
+        <section class="signin-content">
+
+
+            <!-- WELCOME -->
+
+            <div class="signin-welcome">
+
+                <div class="signin-welcome-icon">
+                    ♡
+                </div>
+
+
+                <p class="section-kicker">
+                    Welcome Back
+                </p>
+
+
+                <h1>
+                    Sign In
+                </h1>
+
+
+                <p>
+                    Access your CareCircle and
+                    continue caring together.
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SIGN IN FORM
+                 ================================================= -->
+
+            <form
+                id="signinForm"
+                novalidate
+            >
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label
+                        for="signinEmail"
+                        class="form-label"
+                    >
+                        Email
+                    </label>
+
+
+                    <input
+                        type="email"
+                        id="signinEmail"
+                        class="form-control"
+                        placeholder="Enter your email"
+                        autocomplete="email"
+                        required
+                    >
+
+
+                    <small
+                        class="input-error"
+                        id="signinEmailError"
+                    ></small>
+
+                </div>
+
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label
+                        for="signinPassword"
+                        class="form-label"
+                    >
+                        Password
+                    </label>
+
+
+                    <div class="signin-password-wrapper">
+
+                        <input
+                            type="password"
+                            id="signinPassword"
+                            class="form-control signin-password-input"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+
+                        <button
+                            type="button"
+                            class="signin-password-toggle"
+                            id="signinPasswordToggle"
+                            aria-label="Show password"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+
+                    <small
+                        class="input-error"
+                        id="signinPasswordError"
+                    ></small>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     ACCOUNT TYPE
+                     ================================================= -->
+
+                <div class="signin-account-section">
+
+                    <p class="signin-account-label">
+                        Signing in as
+                    </p>
+
+
+                    <div class="signin-role-options">
+
+
+                        <!-- CAREGIVER -->
+
+                        <label class="signin-role-option">
+
+                            <input
+                                type="radio"
+                                name="signinRole"
+                                value="caregiver"
+                                checked
+                            >
+
+                            <span>
+
+                                <strong>
+                                    Caregiver
+                                </strong>
+
+                                <small>
+                                    Manage care
+                                </small>
+
+                            </span>
+
+                        </label>
+
+
+
+                        <!-- CARE RECIPIENT -->
+
+                        <label class="signin-role-option">
+
+                            <input
+                                type="radio"
+                                name="signinRole"
+                                value="recipient"
+                            >
+
+                            <span>
+
+                                <strong>
+                                    Care Recipient
+                                </strong>
+
+                                <small>
+                                    View my care
+                                </small>
+
+                            </span>
+
+                        </label>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     GENERAL ERROR
+                     ================================================= -->
+
+                <div
+                    class="signin-message hidden"
+                    id="signinMessage"
+                >
+                </div>
+
+
+
+                <!-- =================================================
+                     SUBMIT
+                     ================================================= -->
+
+                <button
+                    type="submit"
+                    class="primary-button signin-submit-button"
+                >
+                    Sign In
+                </button>
+
+
+            </form>
+
+
+
+            <!-- =================================================
+                 CREATE ACCOUNT
+                 ================================================= -->
+
+            <div class="signin-create-account">
+
+                <p>
+                    Don't have an account?
+                </p>
+
+
+                <button
+                    type="button"
+                    id="signinCreateAccount"
+                >
+                    Create Account
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PROTOTYPE NOTICE
+                 ================================================= -->
+
+            <div class="signin-prototype-notice">
+
+                <span>
+                    🔒
+                </span>
+
+
+                <div>
+
+                    <strong>
+                        CareCircle Prototype
+                    </strong>
+
+
+                    <p>
+                        Authentication is currently
+                        simulated for this prototype.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <script src="signin.js"></script>
+
+</body>
+
+</html>

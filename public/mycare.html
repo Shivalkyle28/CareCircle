@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>CareCircle | MyCare</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+
+<body>
+
+<main class="dashboard-app recipient-dashboard-app mycare-app">
+
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="dashboard-header">
+
+        <a
+            href="recipient-dashboard.html"
+            class="todo-back-button"
+            aria-label="Back to dashboard"
+        >
+            ←
+        </a>
+
+
+        <div class="dashboard-brand">
+
+            <div class="dashboard-logo-icon">
+                ♡
+            </div>
+
+            <span>
+                CareCircle
+            </span>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="profile-button"
+            id="myCareProfileButton"
+            aria-label="Profile"
+        >
+            👤
+        </button>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CONTENT
+         ===================================================== -->
+
+    <div class="dashboard-content">
+
+
+        <!-- =================================================
+             PAGE HEADING
+             ================================================= -->
+
+        <section class="mycare-heading">
+
+            <p class="section-kicker">
+                Care Recipient
+            </p>
+
+            <h1>
+                MyCare
+            </h1>
+
+            <p>
+                A simple view of your health and
+                family care circle.
+            </p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             MY HEALTH TODAY
+             ================================================= -->
+
+        <section class="mycare-health-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="section-kicker">
+                        Daily Overview
+                    </p>
+
+                    <h2>
+                        My Health Today
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="mycare-record-button"
+                    id="myCareRecordButton"
+                >
+                    + Record
+                </button>
+
+            </div>
+
+
+
+            <!-- HEALTH CARDS -->
+
+            <div class="mycare-health-grid">
+
+
+                <!-- BLOOD PRESSURE -->
+
+                <article class="mycare-health-card">
+
+                    <div class="mycare-health-icon">
+                        ♥
+                    </div>
+
+
+                    <div class="mycare-health-content">
+
+                        <span>
+                            Blood Pressure
+                        </span>
+
+
+                        <strong id="myCareBloodPressure">
+                            --/--
+                        </strong>
+
+
+                        <small id="myCareBloodPressureTime">
+                            No reading yet
+                        </small>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- BLOOD SUGAR -->
+
+                <article class="mycare-health-card">
+
+                    <div class="mycare-health-icon">
+                        +
+                    </div>
+
+
+                    <div class="mycare-health-content">
+
+                        <span>
+                            Blood Sugar
+                        </span>
+
+
+                        <strong id="myCareBloodSugar">
+                            --
+                        </strong>
+
+
+                        <small id="myCareBloodSugarTime">
+                            No reading yet
+                        </small>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- SLEEP -->
+
+                <article class="mycare-health-card">
+
+                    <div class="mycare-health-icon">
+                        ☾
+                    </div>
+
+
+                    <div class="mycare-health-content">
+
+                        <span>
+                            Sleep
+                        </span>
+
+
+                        <strong id="myCareSleep">
+                            --
+                        </strong>
+
+
+                        <small id="myCareSleepTime">
+                            No reading yet
+                        </small>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FAMILY SECTION
+             ================================================= -->
+
+        <section
+            class="mycare-family-section"
+            id="family"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="section-kicker">
+                        Care Circle
+                    </p>
+
+                    <h2>
+                        My Family
+                    </h2>
+
+                </div>
+
+
+                <span
+                    class="mycare-online-status"
+                    id="myCareFamilyStatus"
+                >
+                    ● Connected
+                </span>
+
+            </div>
+
+
+
+            <!-- FAMILY MEMBER -->
+
+            <article class="mycare-family-card">
+
+                <div class="mycare-family-avatar">
+                    👤
+                </div>
+
+
+                <div class="mycare-family-details">
+
+                    <strong id="myCareFamilyName">
+                        My Caregiver
+                    </strong>
+
+                    <span id="myCareFamilyRelationship">
+                        Family CareCircle
+                    </span>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="mycare-message-button"
+                    id="openFamilyMessage"
+                    aria-label="Send message"
+                >
+                    ●●●
+                </button>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 MESSAGE HISTORY
+                 ================================================= -->
+
+            <div
+                class="mycare-message-history"
+                id="myCareMessageHistory"
+            >
+
+                <div class="mycare-empty-messages">
+
+                    <span>
+                        ●●●
+                    </span>
+
+                    <p>
+                        No family messages yet.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FAMILY REASSURANCE
+             ================================================= -->
+
+        <section class="mycare-connected-card">
+
+            <div class="mycare-connected-icon">
+                ♡
+            </div>
+
+
+            <div>
+
+                <strong>
+                    Your CareCircle is connected
+                </strong>
+
+                <p>
+                    Your shared care information helps
+                    your family stay involved in your
+                    day-to-day care.
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         RECORD HEALTH MODAL
+         ===================================================== -->
+
+    <div
+        class="modal-overlay hidden"
+        id="myCareHealthModal"
+    >
+
+        <div class="task-modal recipient-small-modal">
+
+            <div class="task-modal-header">
+
+                <div>
+
+                    <p class="section-kicker">
+                        My Health
+                    </p>
+
+                    <h2 id="myCareHealthModalTitle">
+                        Record Reading
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="modal-close-button"
+                    id="closeMyCareHealthModal"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+
+            <!-- TYPE -->
+
+            <div class="mycare-health-tabs">
+
+
+                <button
+                    type="button"
+                    class="mycare-health-tab active"
+                    data-health-type="bloodPressure"
+                >
+                    Blood Pressure
+                </button>
+
+
+                <button
+                    type="button"
+                    class="mycare-health-tab"
+                    data-health-type="bloodSugar"
+                >
+                    Blood Sugar
+                </button>
+
+
+                <button
+                    type="button"
+                    class="mycare-health-tab"
+                    data-health-type="sleep"
+                >
+                    Sleep
+                </button>
+
+
+            </div>
+
+
+
+            <form id="myCareHealthForm">
+
+                <input
+                    type="hidden"
+                    id="myCareHealthType"
+                    value="bloodPressure"
+                >
+
+
+
+                <!-- =============================================
+                     BLOOD PRESSURE
+                     ============================================= -->
+
+                <div
+                    class="mycare-health-form-section"
+                    id="myCareBloodPressureFields"
+                >
+
+                    <div class="health-reading-row">
+
+
+                        <div class="form-group">
+
+                            <label
+                                for="myCareSystolic"
+                                class="form-label"
+                            >
+                                Systolic
+                            </label>
+
+                            <input
+                                type="number"
+                                id="myCareSystolic"
+                                class="form-control"
+                                min="1"
+                                placeholder="120"
+                            >
+
+                        </div>
+
+
+                        <div class="health-reading-divider">
+                            /
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label
+                                for="myCareDiastolic"
+                                class="form-label"
+                            >
+                                Diastolic
+                            </label>
+
+                            <input
+                                type="number"
+                                id="myCareDiastolic"
+                                class="form-control"
+                                min="1"
+                                placeholder="80"
+                            >
+
+                        </div>
+
+
+                    </div>
+
+
+                    <small class="health-unit-note">
+                        mmHg
+                    </small>
+
+                </div>
+
+
+
+                <!-- =============================================
+                     BLOOD SUGAR
+                     ============================================= -->
+
+                <div
+                    class="mycare-health-form-section hidden"
+                    id="myCareBloodSugarFields"
+                >
+
+                    <div class="form-group">
+
+                        <label
+                            for="myCareBloodSugarReading"
+                            class="form-label"
+                        >
+                            Blood Sugar Reading
+                        </label>
+
+                        <input
+                            type="number"
+                            id="myCareBloodSugarReading"
+                            class="form-control"
+                            min="1"
+                            step="0.1"
+                            placeholder="110"
+                        >
+
+                        <small class="field-help">
+                            mg/dL
+                        </small>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label
+                            for="myCareGlucoseContext"
+                            class="form-label"
+                        >
+                            Reading Type
+                        </label>
+
+                        <select
+                            id="myCareGlucoseContext"
+                            class="form-control"
+                        >
+
+                            <option value="Not specified">
+                                Not specified
+                            </option>
+
+                            <option value="Fasting">
+                                Fasting
+                            </option>
+
+                            <option value="Before meal">
+                                Before meal
+                            </option>
+
+                            <option value="After meal">
+                                After meal
+                            </option>
+
+                            <option value="Bedtime">
+                                Bedtime
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =============================================
+                     SLEEP
+                     ============================================= -->
+
+                <div
+                    class="mycare-health-form-section hidden"
+                    id="myCareSleepFields"
+                >
+
+                    <div class="form-group">
+
+                        <label
+                            for="myCareSleepHours"
+                            class="form-label"
+                        >
+                            Hours of Sleep
+                        </label>
+
+                        <input
+                            type="number"
+                            id="myCareSleepHours"
+                            class="form-control"
+                            min="0"
+                            max="24"
+                            step="0.5"
+                            placeholder="7.5"
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =============================================
+                     NOTES
+                     ============================================= -->
+
+                <div class="form-group">
+
+                    <label
+                        for="myCareHealthNotes"
+                        class="form-label"
+                    >
+                        Notes
+                    </label>
+
+                    <textarea
+                        id="myCareHealthNotes"
+                        class="form-control"
+                        rows="3"
+                        placeholder="Optional notes"
+                    ></textarea>
+
+                </div>
+
+
+
+                <div class="task-modal-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        id="cancelMyCareHealth"
+                    >
+                        Cancel
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Save Reading
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         FAMILY MESSAGE MODAL
+         ===================================================== -->
+
+    <div
+        class="modal-overlay hidden"
+        id="familyMessageModal"
+    >
+
+        <div class="task-modal recipient-small-modal">
+
+            <div class="task-modal-header">
+
+                <div>
+
+                    <p class="section-kicker">
+                        Care Circle
+                    </p>
+
+                    <h2 id="familyMessageModalTitle">
+                        Message Family
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="modal-close-button"
+                    id="closeFamilyMessageModal"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="familyMessageForm">
+
+                <div class="form-group">
+
+                    <label
+                        for="familyMessageText"
+                        class="form-label"
+                    >
+                        Message
+                    </label>
+
+                    <textarea
+                        id="familyMessageText"
+                        class="form-control"
+                        rows="5"
+                        maxlength="500"
+                        placeholder="Write a message..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <div class="task-modal-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        id="cancelFamilyMessage"
+                    >
+                        Cancel
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Send
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         BOTTOM NAVIGATION
+         ===================================================== -->
+
+    <nav class="recipient-bottom-navigation">
+
+
+        <a
+            href="recipient-dashboard.html"
+            class="recipient-nav-item"
+        >
+
+            <span>
+                ⌂
+            </span>
+
+            <small>
+                Home
+            </small>
+
+        </a>
+
+
+        <a
+            href="mycare.html"
+            class="recipient-nav-item active"
+        >
+
+            <span>
+                ♥
+            </span>
+
+            <small>
+                MyCare
+            </small>
+
+        </a>
+
+
+        <button
+            type="button"
+            class="recipient-nav-item"
+            id="myCareFamilyNav"
+        >
+
+            <span>
+                ●●●
+            </span>
+
+            <small>
+                Family
+            </small>
+
+        </button>
+
+
+    </nav>
+
+
+</main>
+
+
+<script src="mycare.js"></script>
+
+</body>
+
+</html>

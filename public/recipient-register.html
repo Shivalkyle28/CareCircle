@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>CareCircle | Care Recipient Registration</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+
+<body>
+
+<main class="app-container recipient-registration-app">
+
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="app-header">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                ♡
+            </div>
+
+            <div class="logo-text">
+                CareCircle
+            </div>
+
+        </div>
+
+        <p class="tagline">
+            Keeping Care Connected
+        </p>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         STEP 1 - YOUR DETAILS
+         ===================================================== -->
+
+    <section
+        class="recipient-registration-step"
+        id="recipientDetailsStep"
+    >
+
+        <div class="registration-content">
+
+
+            <div class="recipient-step-indicator">
+
+                <span class="recipient-step-number active">
+                    1
+                </span>
+
+                <span class="recipient-step-line"></span>
+
+                <span class="recipient-step-number">
+                    2
+                </span>
+
+            </div>
+
+
+            <div class="recipient-step-labels">
+
+                <span class="active">
+                    Your Details
+                </span>
+
+                <span>
+                    Join Family
+                </span>
+
+            </div>
+
+
+            <div class="registration-heading">
+
+                <p class="section-kicker">
+                    Care Recipient
+                </p>
+
+                <h1>
+                    Your Details
+                </h1>
+
+                <p>
+                    Create your CareCircle account
+                    before joining your family care circle.
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 FORM
+                 ================================================= -->
+
+            <form
+                id="recipientRegistrationForm"
+                novalidate
+            >
+
+
+                <!-- FULL NAME -->
+
+                <div class="form-group">
+
+                    <label
+                        for="recipientFullName"
+                        class="form-label"
+                    >
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="recipientFullName"
+                        class="form-control"
+                        autocomplete="name"
+                        required
+                    >
+
+                    <small
+                        class="form-error"
+                        id="recipientFullNameError"
+                    ></small>
+
+                </div>
+
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label
+                        for="recipientEmail"
+                        class="form-label"
+                    >
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="recipientEmail"
+                        class="form-control"
+                        autocomplete="email"
+                        required
+                    >
+
+                    <small
+                        class="form-error"
+                        id="recipientEmailError"
+                    ></small>
+
+                </div>
+
+
+
+                <!-- PHONE -->
+
+                <div class="form-group">
+
+                    <label
+                        for="recipientPhone"
+                        class="form-label"
+                    >
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="recipientPhone"
+                        class="form-control"
+                        autocomplete="tel"
+                        required
+                    >
+
+                    <small
+                        class="form-error"
+                        id="recipientPhoneError"
+                    ></small>
+
+                </div>
+
+
+
+                <!-- ADDRESS -->
+
+                <div class="form-group">
+
+                    <label
+                        for="recipientAddress"
+                        class="form-label"
+                    >
+                        Address
+                    </label>
+
+                    <textarea
+                        id="recipientAddress"
+                        class="form-control recipient-address-input"
+                        rows="3"
+                        autocomplete="street-address"
+                        required
+                    ></textarea>
+
+                    <small
+                        class="form-error"
+                        id="recipientAddressError"
+                    ></small>
+
+                </div>
+
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label
+                        for="recipientPassword"
+                        class="form-label"
+                    >
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="recipientPassword"
+                        class="form-control"
+                        autocomplete="new-password"
+                        required
+                    >
+
+                    <small class="field-help">
+                        Use at least 6 characters.
+                    </small>
+
+                    <small
+                        class="form-error"
+                        id="recipientPasswordError"
+                    ></small>
+
+                </div>
+
+
+
+                <!-- CONFIRM PASSWORD -->
+
+                <div class="form-group">
+
+                    <label
+                        for="recipientConfirmPassword"
+                        class="form-label"
+                    >
+                        Confirm Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="recipientConfirmPassword"
+                        class="form-control"
+                        autocomplete="new-password"
+                        required
+                    >
+
+                    <small
+                        class="form-error"
+                        id="recipientConfirmPasswordError"
+                    ></small>
+
+                </div>
+
+
+
+                <!-- NAVIGATION -->
+
+                <div class="form-navigation">
+
+                    <a
+                        href="index.html"
+                        class="nav-arrow"
+                        aria-label="Back"
+                    >
+                        ←
+                    </a>
+
+
+                    <button
+                        type="submit"
+                        class="nav-arrow recipient-next-button"
+                        aria-label="Continue"
+                    >
+                        →
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         STEP 2 - JOIN FAMILY
+         ===================================================== -->
+
+    <section
+        class="recipient-registration-step hidden"
+        id="recipientJoinStep"
+    >
+
+        <div class="registration-content">
+
+
+            <div class="recipient-step-indicator">
+
+                <span class="recipient-step-number completed">
+                    ✓
+                </span>
+
+                <span class="recipient-step-line active"></span>
+
+                <span class="recipient-step-number active">
+                    2
+                </span>
+
+            </div>
+
+
+            <div class="recipient-step-labels">
+
+                <span>
+                    Your Details
+                </span>
+
+                <span class="active">
+                    Join Family
+                </span>
+
+            </div>
+
+
+
+            <div class="registration-heading">
+
+                <p class="section-kicker">
+                    Connect Your CareCircle
+                </p>
+
+                <h1>
+                    Scan QR Code To Join Family
+                </h1>
+
+                <p>
+                    Scan the CareCircle code shared
+                    by your caregiver or family member.
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 QR SCANNER PROTOTYPE
+                 ================================================= -->
+
+            <div class="qr-scanner">
+
+                <div class="qr-scanner-frame">
+
+
+                    <span class="qr-corner top-left"></span>
+
+                    <span class="qr-corner top-right"></span>
+
+                    <span class="qr-corner bottom-left"></span>
+
+                    <span class="qr-corner bottom-right"></span>
+
+
+                    <div class="qr-scanner-center">
+
+                        <div class="qr-icon">
+                            ▦
+                        </div>
+
+                        <p>
+                            Position the CareCircle
+                            QR code inside the frame.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PROTOTYPE NOTICE
+                 ================================================= -->
+
+            <div class="qr-prototype-notice">
+
+                <span class="qr-notice-icon">
+                    ⓘ
+                </span>
+
+                <p>
+                    QR scanning is represented as a
+                    prototype in this version of CareCircle.
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 DEMO JOIN
+                 ================================================= -->
+
+            <div class="recipient-demo-join">
+
+                <p>
+                    For the prototype, continue using
+                    the demonstration family connection.
+                </p>
+
+
+                <button
+                    type="button"
+                    class="primary-button"
+                    id="joinDemoFamilyButton"
+                >
+                    Join CareCircle
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 NAVIGATION
+                 ================================================= -->
+
+            <div class="form-navigation">
+
+                <button
+                    type="button"
+                    class="nav-arrow"
+                    id="backToRecipientDetails"
+                    aria-label="Back"
+                >
+                    ←
+                </button>
+
+
+                <button
+                    type="button"
+                    class="nav-arrow recipient-finish-button"
+                    id="finishRecipientRegistration"
+                    aria-label="Continue"
+                    disabled
+                >
+                    →
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SUCCESS
+         ===================================================== -->
+
+    <section
+        class="recipient-registration-step hidden"
+        id="recipientSuccessStep"
+    >
+
+        <div class="recipient-success">
+
+            <div class="recipient-success-icon">
+                ✓
+            </div>
+
+
+            <p class="section-kicker">
+                You're Connected
+            </p>
+
+
+            <h1>
+                Welcome to CareCircle
+            </h1>
+
+
+            <p id="recipientSuccessMessage">
+                Your CareCircle account has been created.
+            </p>
+
+
+            <button
+                type="button"
+                class="primary-button"
+                id="goToRecipientDashboard"
+            >
+                Go to My Dashboard
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="recipient-register.js"></script>
+
+</body>
+
+</html>

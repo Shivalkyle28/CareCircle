@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CareCircle | Events</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+<main class="dashboard-app events-app">
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="dashboard-header">
+
+        <a
+            href="dashboard.html"
+            class="todo-back-button"
+            aria-label="Back to dashboard"
+        >
+            ←
+        </a>
+
+
+        <div class="dashboard-brand">
+
+            <div class="dashboard-logo-icon">
+                ♡
+            </div>
+
+            <span>
+                CareCircle
+            </span>
+
+        </div>
+
+
+        <button
+            class="profile-button"
+            type="button"
+            id="eventsProfileButton"
+            aria-label="View profile"
+        >
+            👤
+        </button>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CONTENT
+         ===================================================== -->
+
+    <div class="dashboard-content">
+
+
+        <!-- =================================================
+             PAGE HEADING
+             ================================================= -->
+
+        <section class="events-page-header">
+
+            <div>
+
+                <p class="section-kicker">
+                    Care Schedule
+                </p>
+
+                <h1>
+                    Events
+                </h1>
+
+                <p class="events-subtitle">
+                    Keep appointments, visits and
+                    important care events organized.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="todo-add-button"
+                id="addEventButton"
+            >
+                + Add Event
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CALENDAR CONTROLS
+             ================================================= -->
+
+        <section class="calendar-controls">
+
+            <button
+                type="button"
+                class="calendar-arrow"
+                id="previousPeriod"
+                aria-label="Previous"
+            >
+                ←
+            </button>
+
+
+            <div class="calendar-current">
+
+                <h2 id="calendarHeading">
+                    Calendar
+                </h2>
+
+                <button
+                    type="button"
+                    class="calendar-today-button"
+                    id="todayButton"
+                >
+                    Today
+                </button>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="calendar-arrow"
+                id="nextPeriod"
+                aria-label="Next"
+            >
+                →
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             VIEW SELECTOR
+             ================================================= -->
+
+        <section class="calendar-view-tabs">
+
+            <button
+                type="button"
+                class="calendar-view-button"
+                data-view="day"
+            >
+                Day
+            </button>
+
+
+            <button
+                type="button"
+                class="calendar-view-button"
+                data-view="week"
+            >
+                Week
+            </button>
+
+
+            <button
+                type="button"
+                class="calendar-view-button active"
+                data-view="month"
+            >
+                Month
+            </button>
+
+
+            <button
+                type="button"
+                class="calendar-view-button"
+                data-view="all"
+            >
+                All Events
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CALENDAR
+             JavaScript will populate this area.
+             ================================================= -->
+
+        <section
+            class="calendar-container"
+            id="calendarContainer"
+        >
+
+            <div class="calendar-weekdays">
+
+                <span>Sun</span>
+                <span>Mon</span>
+                <span>Tue</span>
+                <span>Wed</span>
+                <span>Thu</span>
+                <span>Fri</span>
+                <span>Sat</span>
+
+            </div>
+
+
+            <div
+                class="calendar-grid"
+                id="calendarGrid"
+            >
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             EVENT LIST
+             ================================================= -->
+
+        <section class="events-list-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="section-kicker">
+                        Schedule
+                    </p>
+
+                    <h2 id="eventListHeading">
+                        Upcoming Events
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="events-list"
+                id="eventsList"
+            >
+
+                <div class="empty-dashboard-state">
+
+                    <span class="empty-icon">
+                        ◷
+                    </span>
+
+                    <p>
+                        No events have been added yet.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         ADD / EDIT EVENT MODAL
+         ===================================================== -->
+
+    <div
+        class="modal-overlay hidden"
+        id="eventModal"
+    >
+
+        <div
+            class="task-modal event-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="eventModalTitle"
+        >
+
+            <div class="modal-header">
+
+                <div>
+
+                    <p class="section-kicker">
+                        CareCircle
+                    </p>
+
+                    <h2 id="eventModalTitle">
+                        Add Event
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="modal-close"
+                    id="closeEventModal"
+                    aria-label="Close event form"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+
+            <form id="eventForm">
+
+                <!-- Hidden ID -->
+
+                <input
+                    type="hidden"
+                    id="eventId"
+                >
+
+
+
+                <!-- EVENT TITLE -->
+
+                <div class="form-group">
+
+                    <label
+                        class="form-label"
+                        for="eventTitle"
+                    >
+                        Event
+                    </label>
+
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="eventTitle"
+                        placeholder="e.g. Doctor Appointment"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- EVENT TYPE -->
+
+                <div class="form-group">
+
+                    <label
+                        class="form-label"
+                        for="eventType"
+                    >
+                        Event Type
+                    </label>
+
+
+                    <select
+                        class="form-control"
+                        id="eventType"
+                        required
+                    >
+
+                        <option value="">
+                            Select Event Type
+                        </option>
+
+                        <option value="Medical">
+                            Medical
+                        </option>
+
+                        <option value="Appointment">
+                            Appointment
+                        </option>
+
+                        <option value="Family Visit">
+                            Family Visit
+                        </option>
+
+                        <option value="Caregiver Visit">
+                            Caregiver Visit
+                        </option>
+
+                        <option value="Medication">
+                            Medication
+                        </option>
+
+                        <option value="Activity">
+                            Activity
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- DATE / TIME -->
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label
+                            class="form-label"
+                            for="eventDate"
+                        >
+                            Date
+                        </label>
+
+
+                        <input
+                            type="date"
+                            class="form-control"
+                            id="eventDate"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label
+                            class="form-label"
+                            for="eventTime"
+                        >
+                            Time
+                        </label>
+
+
+                        <input
+                            type="time"
+                            class="form-control"
+                            id="eventTime"
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- END TIME -->
+
+                <div class="form-group">
+
+                    <label
+                        class="form-label"
+                        for="eventEndTime"
+                    >
+                        End Time
+                    </label>
+
+
+                    <input
+                        type="time"
+                        class="form-control"
+                        id="eventEndTime"
+                    >
+
+                </div>
+
+
+
+                <!-- LOCATION -->
+
+                <div class="form-group">
+
+                    <label
+                        class="form-label"
+                        for="eventLocation"
+                    >
+                        Location
+                    </label>
+
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="eventLocation"
+                        placeholder="e.g. Health Centre"
+                    >
+
+                </div>
+
+
+
+                <!-- PERSON -->
+
+                <div class="form-group">
+
+                    <label
+                        class="form-label"
+                        for="eventFor"
+                    >
+                        Event For
+                    </label>
+
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="eventFor"
+                        placeholder="Care recipient"
+                    >
+
+                </div>
+
+
+
+                <!-- REMINDER -->
+
+                <div class="form-group">
+
+                    <label
+                        class="form-label"
+                        for="eventReminder"
+                    >
+                        Reminder
+                    </label>
+
+
+                    <select
+                        class="form-control"
+                        id="eventReminder"
+                    >
+
+                        <option value="None">
+                            No Reminder
+                        </option>
+
+                        <option value="15 minutes">
+                            15 Minutes Before
+                        </option>
+
+                        <option value="30 minutes">
+                            30 Minutes Before
+                        </option>
+
+                        <option value="1 hour">
+                            1 Hour Before
+                        </option>
+
+                        <option value="1 day">
+                            1 Day Before
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- REPEAT -->
+
+                <div class="form-group">
+
+                    <label
+                        class="form-label"
+                        for="eventRepeat"
+                    >
+                        Repeat
+                    </label>
+
+
+                    <select
+                        class="form-control"
+                        id="eventRepeat"
+                    >
+
+                        <option value="Never">
+                            Never
+                        </option>
+
+                        <option value="Daily">
+                            Daily
+                        </option>
+
+                        <option value="Weekly">
+                            Weekly
+                        </option>
+
+                        <option value="Monthly">
+                            Monthly
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- NOTES -->
+
+                <div class="form-group">
+
+                    <label
+                        class="form-label"
+                        for="eventNotes"
+                    >
+                        Notes
+                    </label>
+
+
+                    <textarea
+                        class="form-control"
+                        id="eventNotes"
+                        rows="3"
+                        placeholder="Add any important details..."
+                    ></textarea>
+
+                </div>
+
+
+
+                <!-- ATTACHMENT PLACEHOLDER -->
+
+                <div class="form-group">
+
+                    <label
+                        class="form-label"
+                        for="eventAttachment"
+                    >
+                        Attachment
+                    </label>
+
+
+                    <input
+                        type="file"
+                        class="form-control event-file-input"
+                        id="eventAttachment"
+                    >
+
+
+                    <small class="field-help">
+                        Attachment storage will be connected
+                        when we add Firebase Storage.
+                    </small>
+
+                </div>
+
+
+
+                <!-- BUTTONS -->
+
+                <div class="task-form-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        id="cancelEventButton"
+                    >
+                        Cancel
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Save Event
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         EVENT DETAILS MODAL
+         ===================================================== -->
+
+    <div
+        class="modal-overlay hidden"
+        id="eventDetailsModal"
+    >
+
+        <div
+            class="task-modal event-details-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="eventDetailsTitle"
+        >
+
+            <div class="modal-header">
+
+                <div>
+
+                    <p class="section-kicker">
+                        Event Details
+                    </p>
+
+                    <h2 id="eventDetailsTitle">
+                        Event
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="modal-close"
+                    id="closeEventDetails"
+                    aria-label="Close event details"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <div id="eventDetailsContent">
+            </div>
+
+
+            <div class="task-details-actions">
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    id="editEventButton"
+                >
+                    Edit
+                </button>
+
+
+                <button
+                    type="button"
+                    class="task-delete-button"
+                    id="deleteEventButton"
+                >
+                    Delete
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         BOTTOM NAVIGATION
+         ===================================================== -->
+
+    <nav class="bottom-navigation">
+
+        <a
+            href="dashboard.html"
+            class="bottom-nav-item"
+        >
+            <span class="bottom-nav-icon">
+                ⌂
+            </span>
+
+            <span>
+                Home
+            </span>
+        </a>
+
+
+        <a
+            href="todo.html"
+            class="bottom-nav-item"
+        >
+            <span class="bottom-nav-icon">
+                ✓
+            </span>
+
+            <span>
+                ToDo
+            </span>
+        </a>
+
+
+        <button
+            type="button"
+            class="bottom-nav-item bottom-quick-add"
+            id="eventsQuickAdd"
+        >
+            <span class="bottom-add-icon">
+                +
+            </span>
+
+            <span>
+                Add
+            </span>
+        </button>
+
+
+        <a
+            href="events.html"
+            class="bottom-nav-item active"
+        >
+            <span class="bottom-nav-icon">
+                ◷
+            </span>
+
+            <span>
+                Events
+            </span>
+        </a>
+
+
+        <a
+            href="reports.html"
+            class="bottom-nav-item"
+        >
+            <span class="bottom-nav-icon">
+                ▥
+            </span>
+
+            <span>
+                Reports
+            </span>
+        </a>
+
+    </nav>
+
+</main>
+
+
+<script src="events.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>CareCircle | My Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+
+<body>
+
+<main class="dashboard-app recipient-dashboard-app">
+
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="dashboard-header">
+
+        <div class="dashboard-brand">
+
+            <div class="dashboard-logo-icon">
+                ♡
+            </div>
+
+            <span>
+                CareCircle
+            </span>
+
+        </div>
+
+
+        <div class="recipient-header-actions">
+
+            <button
+                type="button"
+                class="profile-button"
+                id="recipientNotificationButton"
+                aria-label="Notifications"
+            >
+                ♢
+            </button>
+
+            <div
+    class="recipient-account-menu hidden"
+    id="recipientAccountMenu"
+>
+
+    <a href="mycare.html">
+        MyCare
+    </a>
+
+    <button
+        type="button"
+        id="recipientSignOutButton"
+    >
+        Sign Out
+    </button>
+
+</div>
+
+            <button
+                type="button"
+                class="profile-button"
+                id="recipientProfileButton"
+                aria-label="View profile"
+            >
+                👤
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CONTENT
+         ===================================================== -->
+
+    <div class="dashboard-content">
+
+
+        <!-- =================================================
+             GREETING
+             ================================================= -->
+
+        <section class="recipient-greeting">
+
+            <div class="recipient-greeting-icon">
+                ☀
+            </div>
+
+
+            <div>
+
+                <h1>
+                    Good Morning,
+                    <span id="recipientGreetingName">
+                        Janice
+                    </span>
+                </h1>
+
+                <p id="recipientCurrentDate">
+                    Tuesday, 12 September 2026
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             MAIN ACTION GRID
+             ================================================= -->
+
+        <section class="recipient-action-grid">
+
+
+            <!-- MEDICATION -->
+
+            <button
+                type="button"
+                class="recipient-action-card"
+                id="recipientMedicationCard"
+            >
+
+                <span class="recipient-action-icon">
+                    ◉
+                </span>
+
+                <strong>
+                    Medication
+                </strong>
+
+                <span id="recipientMedicationSummary">
+                    No dose scheduled
+                </span>
+
+            </button>
+
+
+
+            <!-- CALENDAR -->
+
+            <button
+                type="button"
+                class="recipient-action-card"
+                id="recipientCalendarCard"
+            >
+
+                <span class="recipient-action-icon">
+                    ▣
+                </span>
+
+                <strong>
+                    Calendar
+                </strong>
+
+                <span id="recipientCalendarSummary">
+                    No upcoming events
+                </span>
+
+            </button>
+
+
+
+            <!-- MEALS -->
+
+            <button
+                type="button"
+                class="recipient-action-card"
+                id="recipientMealsCard"
+            >
+
+                <span class="recipient-action-icon">
+                    🍴
+                </span>
+
+                <strong>
+                    Meals
+                </strong>
+
+                <span id="recipientMealsSummary">
+                    Add a meal
+                </span>
+
+            </button>
+
+
+
+            <!-- ACTIVITY -->
+
+            <button
+                type="button"
+                class="recipient-action-card"
+                id="recipientActivityCard"
+            >
+
+                <span class="recipient-action-icon">
+                    ◇
+                </span>
+
+                <strong>
+                    Activity
+                </strong>
+
+                <span id="recipientActivitySummary">
+                    No activity yet
+                </span>
+
+            </button>
+
+
+
+            <!-- WATER -->
+
+            <button
+                type="button"
+                class="recipient-action-card"
+                id="recipientWaterCard"
+            >
+
+                <span class="recipient-action-icon">
+                    ▯
+                </span>
+
+                <strong>
+                    Water
+                </strong>
+
+                <span id="recipientWaterSummary">
+                    0 glasses
+                </span>
+
+            </button>
+
+
+
+            <!-- MOOD -->
+
+            <button
+                type="button"
+                class="recipient-action-card"
+                id="recipientMoodCard"
+            >
+
+                <span
+                    class="recipient-action-icon"
+                    id="recipientMoodIcon"
+                >
+                    ☺
+                </span>
+
+                <strong>
+                    Mood
+                </strong>
+
+                <span id="recipientMoodSummary">
+                    Check in today
+                </span>
+
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             EMERGENCY CONTACT
+             ================================================= -->
+
+        <button
+            type="button"
+            class="recipient-emergency-button"
+            id="recipientEmergencyButton"
+        >
+
+            <span class="recipient-emergency-icon">
+                ☎
+            </span>
+
+            <span>
+                EMERGENCY CONTACT
+            </span>
+
+        </button>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         MEAL MODAL
+         ===================================================== -->
+
+    <div
+        class="modal-overlay hidden"
+        id="recipientMealModal"
+    >
+
+        <div class="task-modal recipient-small-modal">
+
+            <div class="task-modal-header">
+
+                <div>
+
+                    <p class="section-kicker">
+                        Nutrition
+                    </p>
+
+                    <h2>
+                        Add Meal
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="modal-close-button"
+                    id="closeRecipientMealModal"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="recipientMealForm">
+
+
+                <div class="recipient-choice-list">
+
+                    <label class="recipient-choice-option">
+
+                        <input
+                            type="radio"
+                            name="mealType"
+                            value="Breakfast"
+                            required
+                        >
+
+                        <span>
+                            Breakfast
+                        </span>
+
+                    </label>
+
+
+                    <label class="recipient-choice-option">
+
+                        <input
+                            type="radio"
+                            name="mealType"
+                            value="Lunch"
+                        >
+
+                        <span>
+                            Lunch
+                        </span>
+
+                    </label>
+
+
+                    <label class="recipient-choice-option">
+
+                        <input
+                            type="radio"
+                            name="mealType"
+                            value="Dinner"
+                        >
+
+                        <span>
+                            Dinner
+                        </span>
+
+                    </label>
+
+
+                    <label class="recipient-choice-option">
+
+                        <input
+                            type="radio"
+                            name="mealType"
+                            value="Light Snack"
+                        >
+
+                        <span>
+                            Light Snack
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label
+                        for="recipientMealNotes"
+                        class="form-label"
+                    >
+                        Notes
+                    </label>
+
+                    <textarea
+                        id="recipientMealNotes"
+                        class="form-control"
+                        rows="3"
+                        placeholder="Optional meal details"
+                    ></textarea>
+
+                </div>
+
+
+                <div class="task-modal-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        id="cancelRecipientMeal"
+                    >
+                        Cancel
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Add Meal
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         WATER MODAL
+         ===================================================== -->
+
+    <div
+        class="modal-overlay hidden"
+        id="recipientWaterModal"
+    >
+
+        <div class="task-modal recipient-small-modal">
+
+            <div class="task-modal-header">
+
+                <div>
+
+                    <p class="section-kicker">
+                        Hydration
+                    </p>
+
+                    <h2>
+                        Water - 250 ml
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="modal-close-button"
+                    id="closeRecipientWaterModal"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="recipient-water-control">
+
+                <button
+                    type="button"
+                    class="recipient-water-button"
+                    id="decreaseRecipientWater"
+                >
+                    −
+                </button>
+
+
+                <div class="recipient-water-value">
+
+                    <strong id="recipientWaterCount">
+                        0
+                    </strong>
+
+                    <span>
+                        glasses
+                    </span>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="recipient-water-button"
+                    id="increaseRecipientWater"
+                >
+                    +
+                </button>
+
+            </div>
+
+
+            <p class="recipient-water-total">
+
+                Total:
+                <strong id="recipientWaterMillilitres">
+                    0 ml
+                </strong>
+
+            </p>
+
+
+            <button
+                type="button"
+                class="primary-button"
+                id="saveRecipientWater"
+            >
+                Save
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         MOOD MODAL
+         ===================================================== -->
+
+    <div
+        class="modal-overlay hidden"
+        id="recipientMoodModal"
+    >
+
+        <div class="task-modal recipient-small-modal">
+
+            <div class="task-modal-header">
+
+                <div>
+
+                    <p class="section-kicker">
+                        Daily Check-In
+                    </p>
+
+                    <h2>
+                        How are you feeling?
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="modal-close-button"
+                    id="closeRecipientMoodModal"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="recipient-mood-options">
+
+
+                <button
+                    type="button"
+                    class="recipient-mood-option"
+                    data-mood="Happy"
+                    data-icon="☺"
+                >
+
+                    <span>
+                        ☺
+                    </span>
+
+                    <strong>
+                        Happy
+                    </strong>
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="recipient-mood-option"
+                    data-mood="OK"
+                    data-icon="😐"
+                >
+
+                    <span>
+                        😐
+                    </span>
+
+                    <strong>
+                        OK
+                    </strong>
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="recipient-mood-option"
+                    data-mood="Sad"
+                    data-icon="☹"
+                >
+
+                    <span>
+                        ☹
+                    </span>
+
+                    <strong>
+                        Sad
+                    </strong>
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         ACTIVITY MODAL
+         ===================================================== -->
+
+    <div
+        class="modal-overlay hidden"
+        id="recipientActivityModal"
+    >
+
+        <div class="task-modal recipient-small-modal">
+
+            <div class="task-modal-header">
+
+                <div>
+
+                    <p class="section-kicker">
+                        Movement
+                    </p>
+
+                    <h2>
+                        Record Activity
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="modal-close-button"
+                    id="closeRecipientActivityModal"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="recipientActivityForm">
+
+
+                <div class="form-group">
+
+                    <label
+                        for="recipientActivityDescription"
+                        class="form-label"
+                    >
+                        Activity
+                    </label>
+
+                    <input
+                        type="text"
+                        id="recipientActivityDescription"
+                        class="form-control"
+                        placeholder="e.g. Morning walk"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label
+                        for="recipientActivityMinutes"
+                        class="form-label"
+                    >
+                        Duration
+                    </label>
+
+                    <input
+                        type="number"
+                        id="recipientActivityMinutes"
+                        class="form-control"
+                        min="1"
+                        max="1440"
+                        placeholder="Minutes"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="task-modal-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        id="cancelRecipientActivity"
+                    >
+                        Cancel
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Save Activity
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         EMERGENCY CONTACT MODAL
+         ===================================================== -->
+
+    <div
+        class="modal-overlay hidden"
+        id="recipientEmergencyModal"
+    >
+
+        <div class="task-modal recipient-small-modal">
+
+            <div class="recipient-emergency-modal-icon">
+                ☎
+            </div>
+
+
+            <h2>
+                Emergency Contact
+            </h2>
+
+
+            <p>
+                Contact your designated family member
+                or caregiver for assistance.
+            </p>
+
+
+            <div
+                class="recipient-emergency-contact"
+                id="recipientEmergencyContact"
+            >
+
+                <strong>
+                    Caregiver
+                </strong>
+
+                <span>
+                    Family CareCircle
+                </span>
+
+            </div>
+
+
+            <div class="task-modal-actions">
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    id="closeRecipientEmergencyModal"
+                >
+                    Cancel
+                </button>
+
+
+                <button
+                    type="button"
+                    class="recipient-call-button"
+                    id="recipientCallEmergencyContact"
+                >
+                    ☎ Call
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         BOTTOM NAVIGATION
+         ===================================================== -->
+
+    <nav class="recipient-bottom-navigation">
+
+
+        <a
+            href="recipient-dashboard.html"
+            class="recipient-nav-item active"
+            aria-label="Home"
+        >
+            <span>
+                ⌂
+            </span>
+
+            <small>
+                Home
+            </small>
+        </a>
+
+
+        <a
+            href="mycare.html"
+            class="recipient-nav-item"
+            aria-label="My Care"
+        >
+            <span>
+                ♥
+            </span>
+
+            <small>
+                MyCare
+            </small>
+        </a>
+
+
+        <button
+            type="button"
+            class="recipient-nav-item"
+            id="recipientMessageButton"
+            aria-label="Family messages"
+        >
+            <span>
+                ●●●
+            </span>
+
+            <small>
+                Family
+            </small>
+        </button>
+
+
+    </nav>
+
+
+</main>
+
+<script src="session.js"></script>
+<script src="recipient-dashboard.js"></script>
+
+</body>
+
+</html>

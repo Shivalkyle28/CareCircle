@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>CareCircle | Medications</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+
+<body>
+
+<main class="dashboard-app medication-app">
+
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="dashboard-header">
+
+        <button
+            type="button"
+            class="todo-back-button"
+            id="medicationBackButton"
+            aria-label="Back"
+        >
+            ←
+        </button>
+
+
+        <div class="dashboard-brand">
+
+            <div class="dashboard-logo-icon">
+                ♡
+            </div>
+
+            <span>
+                CareCircle
+            </span>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="profile-button"
+            id="medicationProfileButton"
+            aria-label="Profile"
+        >
+            👤
+        </button>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CONTENT
+         ===================================================== -->
+
+    <div class="dashboard-content">
+
+
+        <!-- =================================================
+             PAGE HEADING
+             ================================================= -->
+
+        <section class="medication-page-heading">
+
+            <div>
+
+                <p
+                    class="section-kicker"
+                    id="medicationPageRole"
+                >
+                    CareCircle
+                </p>
+
+
+                <h1>
+                    Medications
+                </h1>
+
+
+                <p id="medicationPageDescription">
+                    Manage medications and daily status.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="primary-button medication-add-button"
+                id="addMedicationButton"
+            >
+                + Add
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SUMMARY
+             ================================================= -->
+
+        <section class="medication-summary-grid">
+
+
+            <article class="medication-summary-card">
+
+                <strong id="medicationTotalCount">
+                    0
+                </strong>
+
+                <span>
+                    Medications
+                </span>
+
+            </article>
+
+
+            <article class="medication-summary-card">
+
+                <strong id="medicationPendingCount">
+                    0
+                </strong>
+
+                <span>
+                    Pending
+                </span>
+
+            </article>
+
+
+            <article class="medication-summary-card">
+
+                <strong id="medicationTakenCount">
+                    0
+                </strong>
+
+                <span>
+                    Taken
+                </span>
+
+            </article>
+
+
+            <article class="medication-summary-card">
+
+                <strong id="medicationMissedCount">
+                    0
+                </strong>
+
+                <span>
+                    Missed
+                </span>
+
+            </article>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             FILTERS
+             ================================================= -->
+
+        <div class="medication-filters">
+
+            <button
+                type="button"
+                class="medication-filter active"
+                data-filter="all"
+            >
+                All
+            </button>
+
+
+            <button
+                type="button"
+                class="medication-filter"
+                data-filter="pending"
+            >
+                Pending
+            </button>
+
+
+            <button
+                type="button"
+                class="medication-filter"
+                data-filter="taken"
+            >
+                Taken
+            </button>
+
+
+            <button
+                type="button"
+                class="medication-filter"
+                data-filter="missed"
+            >
+                Missed
+            </button>
+
+        </div>
+
+
+
+        <!-- =================================================
+             MEDICATION LIST
+             ================================================= -->
+
+        <section
+            class="medication-list"
+            id="medicationList"
+        >
+
+            <div class="medication-empty-state">
+
+                <div class="medication-empty-icon">
+                    ◉
+                </div>
+
+                <h2>
+                    No medications yet
+                </h2>
+
+                <p>
+                    Add a medication to begin
+                    tracking the care schedule.
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         ADD / EDIT MEDICATION MODAL
+         ===================================================== -->
+
+    <div
+        class="modal-overlay hidden"
+        id="medicationFormModal"
+    >
+
+        <div class="task-modal medication-modal">
+
+            <div class="task-modal-header">
+
+                <div>
+
+                    <p class="section-kicker">
+                        Medication
+                    </p>
+
+
+                    <h2 id="medicationModalTitle">
+                        Add Medication
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="modal-close-button"
+                    id="closeMedicationModal"
+                    aria-label="Close"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+
+            <form id="medicationForm">
+
+
+                <input
+                    type="hidden"
+                    id="medicationId"
+                >
+
+
+
+                <!-- MEDICATION NAME -->
+
+                <div class="form-group">
+
+                    <label
+                        for="medicationName"
+                        class="form-label"
+                    >
+                        Medication Name
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="medicationName"
+                        class="form-control"
+                        placeholder="e.g. Metformin"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- DOSE -->
+
+                <div class="form-group">
+
+                    <label
+                        for="medicationDose"
+                        class="form-label"
+                    >
+                        Dose
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="medicationDose"
+                        class="form-control"
+                        placeholder="e.g. 500 mg"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- FREQUENCY -->
+
+                <div class="form-group">
+
+                    <label
+                        for="medicationFrequency"
+                        class="form-label"
+                    >
+                        Frequency
+                    </label>
+
+
+                    <select
+                        id="medicationFrequency"
+                        class="form-control"
+                        required
+                    >
+
+                        <option value="">
+                            Select frequency
+                        </option>
+
+                        <option value="Once daily">
+                            Once daily
+                        </option>
+
+                        <option value="Twice daily">
+                            Twice daily
+                        </option>
+
+                        <option value="Three times daily">
+                            Three times daily
+                        </option>
+
+                        <option value="Four times daily">
+                            Four times daily
+                        </option>
+
+                        <option value="As needed">
+                            As needed
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- NEXT DOSE -->
+
+                <div class="form-group">
+
+                    <label
+                        for="medicationNextDose"
+                        class="form-label"
+                    >
+                        Next Dose
+                    </label>
+
+
+                    <input
+                        type="time"
+                        id="medicationNextDose"
+                        class="form-control"
+                    >
+
+                </div>
+
+
+
+                <!-- TAKE WITH FOOD -->
+
+                <div class="form-group">
+
+                    <label
+                        for="medicationWithFood"
+                        class="form-label"
+                    >
+                        Take With Food?
+                    </label>
+
+
+                    <select
+                        id="medicationWithFood"
+                        class="form-control"
+                    >
+
+                        <option value="Not specified">
+                            Not specified
+                        </option>
+
+                        <option value="Yes">
+                            Yes
+                        </option>
+
+                        <option value="No">
+                            No
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- NOTES -->
+
+                <div class="form-group">
+
+                    <label
+                        for="medicationNotes"
+                        class="form-label"
+                    >
+                        Notes
+                    </label>
+
+
+                    <textarea
+                        id="medicationNotes"
+                        class="form-control"
+                        rows="3"
+                        placeholder="Optional medication notes"
+                    ></textarea>
+
+                </div>
+
+
+
+                <!-- STATUS -->
+
+                <div class="form-group">
+
+                    <label
+                        for="medicationStatus"
+                        class="form-label"
+                    >
+                        Today's Status
+                    </label>
+
+
+                    <select
+                        id="medicationStatus"
+                        class="form-control"
+                    >
+
+                        <option value="Pending">
+                            Pending
+                        </option>
+
+                        <option value="Taken">
+                            Taken
+                        </option>
+
+                        <option value="Missed">
+                            Missed
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- ACTIONS -->
+
+                <div class="task-modal-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        id="cancelMedicationButton"
+                    >
+                        Cancel
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Save Medication
+                    </button>
+
+                </div>
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         MEDICATION DETAILS MODAL
+         ===================================================== -->
+
+    <div
+        class="modal-overlay hidden"
+        id="medicationDetailsModal"
+    >
+
+        <div class="task-modal medication-modal">
+
+            <div class="task-modal-header">
+
+                <div>
+
+                    <p class="section-kicker">
+                        Medication Details
+                    </p>
+
+
+                    <h2 id="medicationDetailsTitle">
+                        Medication
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="modal-close-button"
+                    id="closeMedicationDetails"
+                    aria-label="Close"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+
+            <div
+                class="medication-details-content"
+                id="medicationDetailsContent"
+            >
+            </div>
+
+
+
+            <!-- =================================================
+                 DAILY STATUS
+                 ================================================= -->
+
+            <div class="medication-status-actions">
+
+                <p>
+                    Today's Status
+                </p>
+
+
+                <div class="medication-status-button-grid">
+
+
+                    <button
+                        type="button"
+                        class="medication-status-button pending"
+                        data-status="Pending"
+                    >
+                        Pending
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="medication-status-button taken"
+                        data-status="Taken"
+                    >
+                        ✓ Taken
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="medication-status-button missed"
+                        data-status="Missed"
+                    >
+                        × Missed
+                    </button>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 CAREGIVER MANAGEMENT
+                 ================================================= -->
+
+            <div
+                class="task-modal-actions"
+                id="medicationManagementActions"
+            >
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    id="editMedicationButton"
+                >
+                    Edit
+                </button>
+
+
+                <button
+                    type="button"
+                    class="medication-delete-button"
+                    id="deleteMedicationButton"
+                >
+                    Delete
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         DELETE CONFIRMATION
+         ===================================================== -->
+
+    <div
+        class="modal-overlay hidden"
+        id="deleteMedicationModal"
+    >
+
+        <div class="task-modal medication-delete-modal">
+
+            <div class="medication-delete-icon">
+                !
+            </div>
+
+
+            <h2>
+                Delete Medication?
+            </h2>
+
+
+            <p>
+                This removes the medication from
+                the CareCircle medication list.
+            </p>
+
+
+            <div class="task-modal-actions">
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    id="cancelDeleteMedication"
+                >
+                    Cancel
+                </button>
+
+
+                <button
+                    type="button"
+                    class="medication-delete-button"
+                    id="confirmDeleteMedication"
+                >
+                    Delete
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         BOTTOM NAVIGATION
+         ===================================================== -->
+
+    <nav
+        class="bottom-navigation"
+        id="medicationCaregiverNavigation"
+    >
+
+        <a
+            href="dashboard.html"
+            class="bottom-nav-item"
+        >
+            <span>⌂</span>
+            <small>Home</small>
+        </a>
+
+
+        <a
+            href="todo.html"
+            class="bottom-nav-item"
+        >
+            <span>✓</span>
+            <small>ToDo</small>
+        </a>
+
+
+        <a
+            href="events.html"
+            class="bottom-nav-item"
+        >
+            <span>▣</span>
+            <small>Events</small>
+        </a>
+
+
+        <a
+            href="map.html"
+            class="bottom-nav-item"
+        >
+            <span>⌖</span>
+            <small>MyMap</small>
+        </a>
+
+
+        <a
+            href="reports.html"
+            class="bottom-nav-item"
+        >
+            <span>▥</span>
+            <small>Reports</small>
+        </a>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         RECIPIENT NAVIGATION
+         ===================================================== -->
+
+    <nav
+        class="recipient-bottom-navigation hidden"
+        id="medicationRecipientNavigation"
+    >
+
+        <a
+            href="recipient-dashboard.html"
+            class="recipient-nav-item"
+        >
+
+            <span>⌂</span>
+
+            <small>
+                Home
+            </small>
+
+        </a>
+
+
+        <a
+            href="mycare.html"
+            class="recipient-nav-item"
+        >
+
+            <span>♥</span>
+
+            <small>
+                MyCare
+            </small>
+
+        </a>
+
+
+        <a
+            href="mycare.html#family"
+            class="recipient-nav-item"
+        >
+
+            <span>●●●</span>
+
+            <small>
+                Family
+            </small>
+
+        </a>
+
+    </nav>
+
+
+</main>
+
+
+<script src="medications.js"></script>
+
+</body>
+
+</html>
